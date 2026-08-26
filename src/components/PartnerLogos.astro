@@ -1,0 +1,32 @@
+---
+import { withBase } from "../lib/url";
+
+interface LogoItem {
+  src: string;
+  name: string;
+  caption: string;
+  height?: string;
+}
+
+interface Props {
+  items: LogoItem[];
+  class?: string;
+}
+const { items, class: className = "" } = Astro.props;
+---
+
+<div class={`flex flex-wrap items-center justify-center gap-x-12 gap-y-8 ${className}`}>
+  {
+    items.map((item) => (
+      <div class="flex flex-col items-center gap-2 text-center">
+        <img
+          src={withBase(item.src)}
+          alt={item.name}
+          class={item.height ?? "h-14"}
+          loading="lazy"
+        />
+        <p class="max-w-[12rem] text-xs text-ink-500">{item.caption}</p>
+      </div>
+    ))
+  }
+</div>

@@ -20,18 +20,6 @@ const phases = [
   "Monitoring, evaluation & documentation",
 ];
 
-const budget = [
-  ["Equipment (solar panels, structure, irrigation, IoT sensors)", "€5,500"],
-  ["AI / data-processing workstation", "€1,500"],
-  ["Software, cloud & connectivity", "€2,000"],
-  ["Seeds & plant material", "€1,500"],
-  ["Field work & student stipends", "€4,000"],
-  ["Services (agronomist, environmental expert)", "€1,000"],
-  ["Travel", "€1,000"],
-  ["Conferences, workshops & training", "€2,500"],
-  ["Publication & dissemination", "€1,000"],
-];
-
 const team = [
   {
     name: "Alpha Abdoulaye Lansar",
@@ -142,25 +130,6 @@ const team = [
             ))
           }
         </ol>
-
-        <h3 class="mt-8 text-xl font-semibold text-ink-950">Indicative budget breakdown</h3>
-        <p class="text-sm text-ink-500">
-          Total budget: €20,000 — disbursed in three tranches (40% / 40% / 20%).
-        </p>
-        <div class="mt-4 overflow-hidden rounded-xl border border-ink-100">
-          <table class="w-full text-sm">
-            <tbody>
-              {
-                budget.map(([label, amount], i) => (
-                  <tr class={i % 2 === 0 ? "bg-white" : "bg-ink-50/60"}>
-                    <td class="px-4 py-3 text-ink-700">{label}</td>
-                    <td class="px-4 py-3 text-right font-semibold text-ink-950">{amount}</td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
-        </div>
       </div>
 
       <aside class="space-y-6">

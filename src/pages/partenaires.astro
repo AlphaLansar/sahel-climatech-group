@@ -5,8 +5,24 @@ import SectionHeading from "../components/SectionHeading.astro";
 import PartnerCategory from "../components/PartnerCategory.astro";
 import CTASection from "../components/CTASection.astro";
 import PhotoFeature from "../components/PhotoFeature.astro";
+import PartnerLogos from "../components/PartnerLogos.astro";
 import Icon from "../components/Icon.astro";
 import demoPhoto from "../assets/photos/student-demo-session.jpg";
+
+const currentPartners = [
+  {
+    src: "/assets/partners/eutg.png",
+    name: "EUTG — École Universitaire de Technologie et de Gestion",
+    caption: "Partenaire académique & site hôte du projet ForoSun-Tech",
+    height: "h-16",
+  },
+  {
+    src: "/assets/partners/wascal.png",
+    name: "WASCAL — West African Science Service Centre on Climate Change and Adapted Land Use",
+    caption: "ForoSun-Tech sélectionné — programme WASCAL WISE Grant",
+    height: "h-10",
+  },
+];
 
 const categories = [
   {
@@ -73,6 +89,13 @@ const categories = [
     title="Construire par la collaboration, pas l'isolement"
     description="Les défis du Sahel ne se résolvent pas par une seule discipline. Sahel ClimaTech Group construit des ponts entre recherche, technologie, terrain et financement."
   />
+
+  <section class="container-page pt-16 sm:pt-20">
+    <p class="text-center text-xs font-bold uppercase tracking-[0.18em] text-ink-400">
+      Partenaires actuels
+    </p>
+    <PartnerLogos items={currentPartners} class="mt-8" />
+  </section>
 
   <section class="container-page py-20 sm:py-24">
     <SectionHeading
