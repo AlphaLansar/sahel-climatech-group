@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import Icon from "../components/Icon.astro";
 import { SITE } from "../consts";
+import { withBase } from "../lib/url";
 ---
 
 <BaseLayout
@@ -61,8 +62,9 @@ import { SITE } from "../consts";
               <p class="text-sm font-semibold text-ink-950">Informations légales</p>
               <p class="text-sm leading-relaxed text-ink-600">
                 Forme juridique, siège social et immatriculation :
-                <a href="/mentions-legales/" class="font-semibold text-brand-700 link-underline"
-                  >mentions légales</a
+                <a
+                  href={withBase("/mentions-legales/")}
+                  class="font-semibold text-brand-700 link-underline">mentions légales</a
                 >.
               </p>
             </div>

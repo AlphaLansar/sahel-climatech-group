@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE, ROUTE_ALTERNATES, type Lang } from "../consts";
+import { withBase } from "../lib/url";
 import "../styles/global.css";
 
 interface Props {
@@ -15,18 +16,18 @@ interface Props {
 
 const { lang, title, description, path, ogImage } = Astro.props;
 
-const canonicalURL = new URL(path, Astro.site);
+const canonicalURL = new URL(withBase(path), Astro.site);
 const alternatePath = ROUTE_ALTERNATES[path];
-const alternateURL = alternatePath ? new URL(alternatePath, Astro.site) : null;
-const ogImageURL = new URL(ogImage ?? "/assets/brand/og-cover.jpg", Astro.site);
+const alternateURL = alternatePath ? new URL(withBase(alternatePath), Astro.site) : null;
+const ogImageURL = new URL(withBase(ogImage ?? "/assets/brand/og-cover.jpg"), Astro.site);
 const fullTitle = title.includes(SITE.name) ? title : `${title} — ${SITE.name}`;
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: SITE.name,
-  url: String(new URL("/", Astro.site)),
-  logo: String(new URL("/assets/brand/logo-mark.png", Astro.site)),
+  url: String(new URL(withBase("/"), Astro.site)),
+  logo: String(new URL(withBase("/assets/brand/logo-mark.png"), Astro.site)),
   description:
     lang === "fr"
       ? "Structure malienne d'innovation, de recherche appliquée et de technologie dédiée à la résilience climatique, environnementale et agricole du Sahel."
@@ -58,7 +59,7 @@ const organizationSchema = {
         <link rel="alternate" hreflang={lang === "fr" ? "en" : "fr"} href={alternateURL} />
       )
     }
-    <link rel="alternate" hreflang="x-default" href={new URL("/", Astro.site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(withBase("/"), Astro.site)} />
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />

@@ -1,6 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 import { NAV, FOOTER_LINKS, SITE, type Lang } from "../consts";
+import { withBase } from "../lib/url";
 
 interface Props {
   lang: Lang;
@@ -34,7 +35,7 @@ const copy = {
 <footer class="border-t border-ink-100 bg-ink-950 text-ink-300">
   <div class="container-page grid gap-10 py-14 lg:grid-cols-[1.4fr_1fr_1fr]">
     <div>
-      <a href={lang === "fr" ? "/" : "/en/"} class="flex items-center gap-2.5">
+      <a href={withBase(lang === "fr" ? "/" : "/en/")} class="flex items-center gap-2.5">
         <img
           src={`${base}assets/brand/logo-mark.png`}
           alt=""
@@ -57,7 +58,7 @@ const copy = {
         {
           NAV.map((item) => (
             <li>
-              <a href={item[lang].href} class="text-sm text-ink-300 hover:text-white">
+              <a href={withBase(item[lang].href)} class="text-sm text-ink-300 hover:text-white">
                 {item[lang].label}
               </a>
             </li>
@@ -89,7 +90,7 @@ const copy = {
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         {
           FOOTER_LINKS[lang].map((link) => (
-            <a href={link.href} class="hover:text-ink-200">
+            <a href={withBase(link.href)} class="hover:text-ink-200">
               {link.label}
             </a>
           ))

@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import Icon from "../../components/Icon.astro";
 import { SITE } from "../../consts";
+import { withBase } from "../../lib/url";
 ---
 
 <BaseLayout
@@ -61,8 +62,9 @@ import { SITE } from "../../consts";
               <p class="text-sm font-semibold text-ink-950">Legal information</p>
               <p class="text-sm leading-relaxed text-ink-600">
                 Legal form, registered office and registration:
-                <a href="/en/legal-notice/" class="font-semibold text-brand-700 link-underline"
-                  >legal notice</a
+                <a
+                  href={withBase("/en/legal-notice/")}
+                  class="font-semibold text-brand-700 link-underline">legal notice</a
                 >.
               </p>
             </div>

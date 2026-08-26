@@ -2,6 +2,7 @@
 import Icon from "./Icon.astro";
 import Button from "./Button.astro";
 import { NAV, ROUTE_ALTERNATES, SITE, type Lang } from "../consts";
+import { withBase } from "../lib/url";
 
 interface Props {
   lang: Lang;
@@ -20,7 +21,7 @@ const isActive = (href: string) => (href === homeHref ? path === href : path.sta
 
 <header class="sticky top-0 z-40 border-b border-ink-100/80 bg-white/85 backdrop-blur-md">
   <div class="container-page flex h-18 items-center justify-between gap-4 py-3">
-    <a href={homeHref} class="flex shrink-0 items-center gap-2.5">
+    <a href={withBase(homeHref)} class="flex shrink-0 items-center gap-2.5">
       <img
         src={`${base}assets/brand/logo-mark.png`}
         alt={SITE.name}
@@ -39,7 +40,7 @@ const isActive = (href: string) => (href === homeHref ? path === href : path.sta
           const entry = item[lang];
           return (
             <a
-              href={entry.href}
+              href={withBase(entry.href)}
               aria-current={isActive(entry.href) ? "page" : undefined}
               class={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
                 isActive(entry.href)
@@ -58,7 +59,7 @@ const isActive = (href: string) => (href === homeHref ? path === href : path.sta
       {
         altPath && (
           <a
-            href={altPath}
+            href={withBase(altPath)}
             class="rounded-full px-3 py-2 text-sm font-semibold text-ink-500 ring-1 ring-inset ring-ink-200 transition-colors hover:text-ink-900 hover:ring-ink-400"
             aria-label={lang === "fr" ? "Switch to English" : "Passer en français"}
           >
@@ -93,7 +94,7 @@ const isActive = (href: string) => (href === homeHref ? path === href : path.sta
         const entry = item[lang];
         return (
           <a
-            href={entry.href}
+            href={withBase(entry.href)}
             class={`rounded-lg px-3 py-2.5 text-base font-medium ${
               isActive(entry.href) ? "bg-brand-50 text-brand-700" : "text-ink-700"
             }`}
@@ -105,7 +106,10 @@ const isActive = (href: string) => (href === homeHref ? path === href : path.sta
     }
     {
       altPath && (
-        <a href={altPath} class="rounded-lg px-3 py-2.5 text-base font-medium text-ink-500">
+        <a
+          href={withBase(altPath)}
+          class="rounded-lg px-3 py-2.5 text-base font-medium text-ink-500"
+        >
           {lang === "fr" ? "English version" : "Version française"}
         </a>
       )

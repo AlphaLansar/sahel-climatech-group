@@ -1,5 +1,6 @@
 ---
 import Icon, { type IconName } from "./Icon.astro";
+import { withBase } from "../lib/url";
 
 /**
  * Every variant is a fully self-contained class string (bg + text + hover
@@ -43,7 +44,7 @@ const variants: Record<Variant, string> = {
 ---
 
 <a
-  href={href}
+  href={external ? href : withBase(href)}
   class={`${base} ${variants[variant]} ${className}`}
   target={external ? "_blank" : undefined}
   rel={external ? "noopener noreferrer" : undefined}

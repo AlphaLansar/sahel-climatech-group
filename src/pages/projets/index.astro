@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import Badge from "../../components/Badge.astro";
 import Icon from "../../components/Icon.astro";
+import { withBase } from "../../lib/url";
 ---
 
 <BaseLayout
@@ -19,7 +20,7 @@ import Icon from "../../components/Icon.astro";
 
   <section class="container-page py-20 sm:py-24">
     <a
-      href="/projets/forosun-tech/"
+      href={withBase("/projets/forosun-tech/")}
       class="group grid gap-8 rounded-3xl border border-ink-100 bg-white p-8 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center"
     >
       <div>
@@ -61,7 +62,7 @@ import Icon from "../../components/Icon.astro";
     <div class="mt-10 rounded-2xl border border-dashed border-ink-200 p-8 text-center">
       <p class="text-sm text-ink-500">
         D'autres projets de recherche appliquée et de formation sont en préparation. Revenez bientôt
-        — ou <a href="/contact/" class="font-semibold text-brand-700 link-underline"
+        — ou <a href={withBase("/contact/")} class="font-semibold text-brand-700 link-underline"
           >contactez-nous</a
         >
         pour construire le prochain ensemble.
