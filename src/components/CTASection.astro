@@ -26,18 +26,12 @@ const { title, description, primaryLabel, primaryHref, secondaryLabel, secondary
       {description}
     </p>
     <div class="relative mt-8 flex flex-wrap items-center justify-center gap-3">
-      <Button
-        href={primaryHref}
-        variant="accent"
-      >
+      <Button href={primaryHref} variant="accent">
         {primaryLabel}
       </Button>
       {
         secondaryLabel && secondaryHref && (
-          <Button
-            href={secondaryHref}
-            variant="outline"
-          >
+          <Button href={secondaryHref} variant="outline">
             {secondaryLabel}
           </Button>
         )

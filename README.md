@@ -48,7 +48,7 @@ the `hreflang` tags stay correct automatically.
 ## Local development
 
 ```bash
-nvm use            # Node >= 20 (see .nvmrc)
+nvm use            # Node >= 22.12 (see .nvmrc)
 npm ci
 npm run dev         # http://localhost:4321
 ```

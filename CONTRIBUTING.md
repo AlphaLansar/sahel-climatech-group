@@ -8,7 +8,7 @@ improvements.
 ## Local setup
 
 ```bash
-nvm use          # or ensure Node >= 20
+nvm use          # or ensure Node >= 22.12
 npm ci
 npm run dev      # http://localhost:4321
 ```
