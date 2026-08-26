@@ -1,7 +1,7 @@
 # Sahel ClimaTech Group — Website
 
-[![CI](https://github.com/alphalansar/sahel-climatech-group/actions/workflows/ci.yml/badge.svg)](https://github.com/alphalansar/sahel-climatech-group/actions/workflows/ci.yml)
-[![Deploy](https://github.com/alphalansar/sahel-climatech-group/actions/workflows/deploy.yml/badge.svg)](https://github.com/alphalansar/sahel-climatech-group/actions/workflows/deploy.yml)
+[![CI](https://github.com/AlphaLansar/sahel-climatech-group/actions/workflows/ci.yml/badge.svg)](https://github.com/AlphaLansar/sahel-climatech-group/actions/workflows/ci.yml)
+[![Deploy](https://github.com/AlphaLansar/sahel-climatech-group/actions/workflows/deploy.yml/badge.svg)](https://github.com/AlphaLansar/sahel-climatech-group/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-0e7a42.svg)](LICENSE)
 
 Official bilingual (FR/EN) marketing website for **Sahel ClimaTech Group**, a
