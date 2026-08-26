@@ -2,8 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import PillarCard from "../components/PillarCard.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import PhotoFeature from "../components/PhotoFeature.astro";
 import CTASection from "../components/CTASection.astro";
 import type { IconName } from "../components/Icon.astro";
+import awardPhoto from "../assets/photos/award-ceremony.jpg";
 
 const pillars: { icon: IconName; title: string; description: string }[] = [
   {
@@ -108,6 +111,23 @@ const pillars: { icon: IconName; title: string; description: string }[] = [
   <section class="container-page py-20 sm:py-24">
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {pillars.map((p) => <PillarCard icon={p.icon} title={p.title} description={p.description} />)}
+    </div>
+  </section>
+
+  <section class="container-page pb-20 sm:pb-24">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div>
+        <SectionHeading
+          eyebrow="Formation & jeunesse"
+          title="Une culture de mentorat et de reconnaissance des projets étudiants"
+          description="Sahel ClimaTech s'inscrit dans l'écosystème du laboratoire Robotique & IA de l'EUTG, où la relève scientifique malienne est formée, encadrée et valorisée — jusqu'à la reconnaissance des meilleurs projets."
+        />
+      </div>
+      <PhotoFeature
+        image={awardPhoto}
+        alt="Remise d'un certificat de meilleur projet à des étudiants, écosystème EUTG Robotique & IA"
+        caption="Remise du certificat de meilleur projet — écosystème EUTG Robotique & IA"
+      />
     </div>
   </section>
 

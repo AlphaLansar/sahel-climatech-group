@@ -1,0 +1,115 @@
+---
+/**
+ * Original brand illustration — a conceptual view of the ForoSun-Tech smart
+ * greenhouse (solar array, IoT sensor nodes, sun). This is a concept
+ * illustration, not a photo: the greenhouse is still at pilot/construction
+ * stage, so no real photography of the built structure exists yet.
+ */
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 480 320"
+  xmlns="http://www.w3.org/2000/svg"
+  class={className}
+  role="img"
+  aria-label="Illustration conceptuelle de la serre solaire intelligente ForoSun-Tech"
+>
+  <defs>
+    <linearGradient id="fs-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c6136"></stop>
+      <stop offset="100%" stop-color="#052316"></stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="480" height="320" rx="24" fill="url(#fs-sky)"></rect>
+
+  <!-- sun -->
+  <circle cx="392" cy="66" r="30" fill="#f5a623" opacity="0.9"></circle>
+  <g stroke="#f9c15a" stroke-width="3" stroke-linecap="round" opacity="0.8">
+    <line x1="392" y1="14" x2="392" y2="2"></line>
+    <line x1="440" y1="30" x2="450" y2="22"></line>
+    <line x1="452" y1="66" x2="466" y2="66"></line>
+    <line x1="440" y1="102" x2="450" y2="110"></line>
+  </g>
+
+  <!-- ground -->
+  <path d="M0 268 Q120 250 240 262 T480 258 V320 H0 Z" fill="#0b4d2c"></path>
+  <path d="M0 284 Q140 270 260 280 T480 278 V320 H0 Z" fill="#093d24"></path>
+
+  <!-- greenhouse structure -->
+  <g>
+    <!-- frame -->
+    <path
+      d="M90 260 V180 L180 130 L270 180 V260 Z"
+      fill="#eafaf1"
+      fill-opacity="0.06"
+      stroke="#66cf97"
+      stroke-width="3"
+      stroke-linejoin="round"></path>
+    <!-- roof ridge -->
+    <line x1="180" y1="130" x2="180" y2="260" stroke="#66cf97" stroke-width="2" opacity="0.6"
+    ></line>
+    <!-- panel divisions -->
+    <line x1="90" y1="212" x2="270" y2="212" stroke="#66cf97" stroke-width="1.5" opacity="0.45"
+    ></line>
+    <line x1="135" y1="155" x2="135" y2="260" stroke="#66cf97" stroke-width="1.5" opacity="0.35"
+    ></line>
+    <line x1="225" y1="155" x2="225" y2="260" stroke="#66cf97" stroke-width="1.5" opacity="0.35"
+    ></line>
+
+    <!-- plant rows inside -->
+    <g stroke="#9de3bc" stroke-width="2.5" stroke-linecap="round" opacity="0.9">
+      <path d="M108 258 v-24 M104 240 l4 -6 4 6 M112 236 l-4 -6 -4 6"></path>
+      <path d="M140 258 v-30 M136 236 l4 -8 4 8 M144 230 l-4 -8 -4 8"></path>
+      <path d="M172 258 v-26 M168 238 l4 -7 4 7 M176 233 l-4 -7 -4 7"></path>
+      <path d="M204 258 v-32 M200 234 l4 -8 4 8 M208 228 l-4 -8 -4 8"></path>
+      <path d="M236 258 v-24 M232 240 l4 -6 4 6 M240 236 l-4 -6 -4 6"></path>
+    </g>
+  </g>
+
+  <!-- solar panel array beside the greenhouse -->
+  <g transform="translate(300 190) rotate(-8)">
+    <rect
+      x="0"
+      y="0"
+      width="120"
+      height="52"
+      rx="4"
+      fill="#0e7a42"
+      stroke="#35b874"
+      stroke-width="2"></rect>
+    <g stroke="#052316" stroke-width="1.2" opacity="0.5">
+      <line x1="20" y1="0" x2="20" y2="52"></line>
+      <line x1="40" y1="0" x2="40" y2="52"></line>
+      <line x1="60" y1="0" x2="60" y2="52"></line>
+      <line x1="80" y1="0" x2="80" y2="52"></line>
+      <line x1="100" y1="0" x2="100" y2="52"></line>
+      <line x1="0" y1="26" x2="120" y2="26"></line>
+    </g>
+  </g>
+  <line x1="330" y1="242" x2="330" y2="262" stroke="#35b874" stroke-width="4" stroke-linecap="round"
+  ></line>
+
+  <!-- IoT sensor nodes with signal pulses -->
+  <g>
+    <circle cx="70" cy="230" r="5" fill="#f5a623"></circle>
+    <circle cx="70" cy="230" r="10" fill="none" stroke="#f5a623" stroke-width="1.5" opacity="0.5"
+    ></circle>
+    <line x1="70" y1="230" x2="70" y2="260" stroke="#f5a623" stroke-width="2"></line>
+
+    <circle cx="255" cy="205" r="5" fill="#f5a623"></circle>
+    <circle cx="255" cy="205" r="10" fill="none" stroke="#f5a623" stroke-width="1.5" opacity="0.5"
+    ></circle>
+  </g>
+
+  <!-- dotted data links from sensors to a small ground station -->
+  <g stroke="#f9c15a" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.7">
+    <path d="M70 230 Q140 190 200 250" fill="none"></path>
+    <path d="M255 205 Q270 230 300 250" fill="none"></path>
+  </g>
+  <rect x="200" y="248" width="18" height="14" rx="2" fill="#f5a623"></rect>
+</svg>

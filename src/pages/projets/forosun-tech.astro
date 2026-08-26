@@ -6,6 +6,7 @@ import StatCard from "../../components/StatCard.astro";
 import TeamMember from "../../components/TeamMember.astro";
 import CTASection from "../../components/CTASection.astro";
 import Icon from "../../components/Icon.astro";
+import GreenhouseIllustration from "../../components/GreenhouseIllustration.astro";
 
 const phases = [
   "Mobilisation & parties prenantes",
@@ -44,16 +45,10 @@ const team = [
     initials: "MC",
   },
   {
-    name: "Aminata Baye Konaké",
-    role: "Développeuse systèmes embarqués",
-    org: "EUTG — Informatique Industrielle",
-    initials: "AK",
-  },
-  {
-    name: "Hamed Diawara",
-    role: "Développeur logiciel",
-    org: "EUTG — Électronique et Automatisme",
-    initials: "HD",
+    name: "Étudiants & stagiaires",
+    role: "Systèmes embarqués, développement logiciel & prototypage",
+    org: "Département Robotique & IA, EUTG",
+    initials: "RI",
   },
   {
     name: "Youssouf Diawara",
@@ -75,28 +70,38 @@ const team = [
       class="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-brand-700/40 blur-3xl"
     >
     </div>
-    <div class="container-page relative py-20 sm:py-24">
-      <div class="flex flex-wrap items-center gap-2">
-        <Badge tone="gold" class="bg-white/10 text-gold-300 ring-white/20">Projet phare</Badge>
-        <Badge tone="neutral" class="bg-white/10 text-white ring-white/20">
-          Sélectionné pour financement — contractualisation en cours
-        </Badge>
+    <div
+      class="container-page relative grid gap-10 py-20 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+    >
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <Badge tone="gold" class="bg-white/10 text-gold-300 ring-white/20">Projet phare</Badge>
+          <Badge tone="neutral" class="bg-white/10 text-white ring-white/20">
+            Sélectionné pour financement — contractualisation en cours
+          </Badge>
+        </div>
+        <h1 class="mt-5 max-w-3xl text-4xl font-bold text-white sm:text-5xl">ForoSun-Tech</h1>
+        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-brand-100">
+          Energy–Water–Food Nexus : une serre solaire intelligente pour une agriculture résiliente
+          au climat dans le Sahel.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-brand-200">
+          <span class="flex items-center gap-2"
+            ><Icon name="pin" class="size-4 text-gold-400" /> Marakacoungo, région de Koulikoro, Mali</span
+          >
+          <span class="flex items-center gap-2"
+            ><Icon name="target" class="size-4 text-gold-400" /> Durée : 15 mois</span
+          >
+          <span class="flex items-center gap-2"
+            ><Icon name="funder" class="size-4 text-gold-400" /> Budget : 20 000 € — WASCAL WISE Grant</span
+          >
+        </div>
       </div>
-      <h1 class="mt-5 max-w-3xl text-4xl font-bold text-white sm:text-5xl">ForoSun-Tech</h1>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-brand-100">
-        Energy–Water–Food Nexus : une serre solaire intelligente pour une agriculture résiliente au
-        climat dans le Sahel.
-      </p>
-      <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-brand-200">
-        <span class="flex items-center gap-2"
-          ><Icon name="pin" class="size-4 text-gold-400" /> Marakacoungo, région de Koulikoro, Mali</span
-        >
-        <span class="flex items-center gap-2"
-          ><Icon name="target" class="size-4 text-gold-400" /> Durée : 15 mois</span
-        >
-        <span class="flex items-center gap-2"
-          ><Icon name="funder" class="size-4 text-gold-400" /> Budget : 20 000 € — WASCAL WISE Grant</span
-        >
+      <div>
+        <GreenhouseIllustration class="w-full rounded-3xl border border-white/10 shadow-2xl" />
+        <p class="mt-3 text-center text-xs text-brand-300">
+          Illustration conceptuelle — serre en phase de conception/construction
+        </p>
       </div>
     </div>
   </section>

@@ -6,6 +6,7 @@ import StatCard from "../../../components/StatCard.astro";
 import TeamMember from "../../../components/TeamMember.astro";
 import CTASection from "../../../components/CTASection.astro";
 import Icon from "../../../components/Icon.astro";
+import GreenhouseIllustration from "../../../components/GreenhouseIllustration.astro";
 
 const phases = [
   "Stakeholder mobilization",
@@ -40,16 +41,10 @@ const team = [
   },
   { name: "Moussa Coulibaly", role: "Agronomy Consultant / Environmental Expert", initials: "MC" },
   {
-    name: "Aminata Baye Konaké",
-    role: "Embedded Systems Developer",
-    org: "EUTG — Industrial Computing",
-    initials: "AK",
-  },
-  {
-    name: "Hamed Diawara",
-    role: "Software Developer",
-    org: "EUTG — Electronics & Automation",
-    initials: "HD",
+    name: "Students & interns",
+    role: "Embedded systems, software development & prototyping",
+    org: "Robotics & AI Department, EUTG",
+    initials: "RI",
   },
   {
     name: "Youssouf Diawara",
@@ -71,28 +66,39 @@ const team = [
       class="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-brand-700/40 blur-3xl"
     >
     </div>
-    <div class="container-page relative py-20 sm:py-24">
-      <div class="flex flex-wrap items-center gap-2">
-        <Badge tone="gold" class="bg-white/10 text-gold-300 ring-white/20">Flagship project</Badge>
-        <Badge tone="neutral" class="bg-white/10 text-white ring-white/20">
-          Selected for funding — contracting in progress
-        </Badge>
+    <div
+      class="container-page relative grid gap-10 py-20 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+    >
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <Badge tone="gold" class="bg-white/10 text-gold-300 ring-white/20">Flagship project</Badge
+          >
+          <Badge tone="neutral" class="bg-white/10 text-white ring-white/20">
+            Selected for funding — contracting in progress
+          </Badge>
+        </div>
+        <h1 class="mt-5 max-w-3xl text-4xl font-bold text-white sm:text-5xl">ForoSun-Tech</h1>
+        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-brand-100">
+          Energy–Water–Food Nexus: a smart solar-powered greenhouse for climate-resilient
+          agriculture in the Sahel.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-brand-200">
+          <span class="flex items-center gap-2"
+            ><Icon name="pin" class="size-4 text-gold-400" /> Marakacoungo, Koulikoro region, Mali</span
+          >
+          <span class="flex items-center gap-2"
+            ><Icon name="target" class="size-4 text-gold-400" /> Duration: 15 months</span
+          >
+          <span class="flex items-center gap-2"
+            ><Icon name="funder" class="size-4 text-gold-400" /> Budget: €20,000 — WASCAL WISE Grant</span
+          >
+        </div>
       </div>
-      <h1 class="mt-5 max-w-3xl text-4xl font-bold text-white sm:text-5xl">ForoSun-Tech</h1>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-brand-100">
-        Energy–Water–Food Nexus: a smart solar-powered greenhouse for climate-resilient agriculture
-        in the Sahel.
-      </p>
-      <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-brand-200">
-        <span class="flex items-center gap-2"
-          ><Icon name="pin" class="size-4 text-gold-400" /> Marakacoungo, Koulikoro region, Mali</span
-        >
-        <span class="flex items-center gap-2"
-          ><Icon name="target" class="size-4 text-gold-400" /> Duration: 15 months</span
-        >
-        <span class="flex items-center gap-2"
-          ><Icon name="funder" class="size-4 text-gold-400" /> Budget: €20,000 — WASCAL WISE Grant</span
-        >
+      <div>
+        <GreenhouseIllustration class="w-full rounded-3xl border border-white/10 shadow-2xl" />
+        <p class="mt-3 text-center text-xs text-brand-300">
+          Concept illustration — greenhouse currently in design/construction phase
+        </p>
       </div>
     </div>
   </section>

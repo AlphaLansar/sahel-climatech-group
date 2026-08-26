@@ -4,9 +4,21 @@ import PageHeader from "../components/PageHeader.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import PartnerCategory from "../components/PartnerCategory.astro";
 import CTASection from "../components/CTASection.astro";
+import PhotoFeature from "../components/PhotoFeature.astro";
 import Icon from "../components/Icon.astro";
+import demoPhoto from "../assets/photos/student-demo-session.jpg";
 
 const categories = [
+  {
+    icon: "digital" as const,
+    title: "Entreprises",
+    items: [
+      "Conseil & audit technologique",
+      "Études d'ingénierie",
+      "Déploiement de solutions IoT / IA",
+      "Accompagnement à la transformation numérique",
+    ],
+  },
   {
     icon: "graduation" as const,
     title: "Universités & laboratoires",
@@ -54,7 +66,7 @@ const categories = [
   lang="fr"
   path="/partenaires/"
   title="Partenariats"
-  description="Sahel ClimaTech Group collabore avec des universités, ONG, institutions publiques, organisations agricoles et bailleurs de fonds pour construire des solutions climatiques au Sahel."
+  description="Sahel ClimaTech Group accompagne entreprises, universités, ONG, institutions publiques et bailleurs de fonds — services de conseil technologique et solutions climatiques au Sahel."
 >
   <PageHeader
     eyebrow="Partenariats"
@@ -65,12 +77,29 @@ const categories = [
   <section class="container-page py-20 sm:py-24">
     <SectionHeading
       eyebrow="Qui nous cherchons à rencontrer"
-      title="Quatre grandes familles de partenaires"
+      title="Cinq grandes familles de partenaires et de clients"
       class="mx-auto max-w-2xl text-center"
       align="center"
     />
-    <div class="mt-10 grid gap-5 sm:grid-cols-2">
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {categories.map((c) => <PartnerCategory icon={c.icon} title={c.title} items={c.items} />)}
+    </div>
+  </section>
+
+  <section class="container-page pb-20 sm:pb-24">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <PhotoFeature
+        image={demoPhoto}
+        alt="Étudiants du laboratoire Robotique & IA présentant une démonstration technique, EUTG"
+        caption="Démonstration technique et suivi de données — laboratoire Robotique & IA, EUTG"
+      />
+      <div>
+        <SectionHeading
+          eyebrow="Au-delà de la recherche"
+          title="Une vocation de prestation de services"
+          description="Sahel ClimaTech Group ne se limite pas aux projets de recherche financés par subvention : la société accompagne aussi directement les entreprises, institutions et ONG par des prestations de conseil, d'étude, d'ingénierie et de déploiement technologique."
+        />
+      </div>
     </div>
   </section>
 
@@ -130,7 +159,7 @@ const categories = [
 
   <CTASection
     title="Explorons une collaboration"
-    description="Que vous représentiez une université, une ONG, une institution publique ou un fonds d'investissement, nous sommes ouverts à la discussion."
+    description="Que vous représentiez une entreprise, une université, une ONG, une institution publique ou un fonds d'investissement, nous sommes ouverts à la discussion."
     primaryLabel="Nous contacter"
     primaryHref="/contact/"
   />

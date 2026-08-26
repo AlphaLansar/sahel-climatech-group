@@ -2,8 +2,11 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import PillarCard from "../../components/PillarCard.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import PhotoFeature from "../../components/PhotoFeature.astro";
 import CTASection from "../../components/CTASection.astro";
 import type { IconName } from "../../components/Icon.astro";
+import awardPhoto from "../../assets/photos/award-ceremony.jpg";
 
 const pillars: { icon: IconName; title: string; description: string }[] = [
   {
@@ -104,6 +107,23 @@ const pillars: { icon: IconName; title: string; description: string }[] = [
   <section class="container-page py-20 sm:py-24">
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {pillars.map((p) => <PillarCard icon={p.icon} title={p.title} description={p.description} />)}
+    </div>
+  </section>
+
+  <section class="container-page pb-20 sm:pb-24">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div>
+        <SectionHeading
+          eyebrow="Training & youth"
+          title="A culture of mentorship and recognition for student projects"
+          description="Sahel ClimaTech is embedded in the ecosystem of EUTG's Robotics & AI lab, where Mali's next generation of scientists and engineers is trained, mentored and recognized — including awards for outstanding projects."
+        />
+      </div>
+      <PhotoFeature
+        image={awardPhoto}
+        alt="Best project certificate awarded to students, EUTG Robotics & AI ecosystem"
+        caption="Best project certificate award — EUTG Robotics & AI ecosystem"
+      />
     </div>
   </section>
 
