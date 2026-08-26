@@ -25,3 +25,6 @@ yarn-error.log*
 # lockfiles other than the one committed for npm
 pnpm-lock.yaml
 yarn.lock
+
+# internal working notes (AI_WORK project memory) — not meant for the public repo
+PROJECT_STATE.md
