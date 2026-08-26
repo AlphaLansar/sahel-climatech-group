@@ -1,0 +1,195 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Badge from "../../../components/Badge.astro";
+import SectionHeading from "../../../components/SectionHeading.astro";
+import StatCard from "../../../components/StatCard.astro";
+import TeamMember from "../../../components/TeamMember.astro";
+import CTASection from "../../../components/CTASection.astro";
+import Icon from "../../../components/Icon.astro";
+
+const phases = [
+  "Stakeholder mobilization",
+  "Preliminary assessment & site preparation",
+  "Technical design & specifications",
+  "Prototype development & testing",
+  "Greenhouse construction & system installation",
+  "Crop cultivation & agronomic monitoring",
+  "AI model development & calibration",
+  "Training & capacity building",
+  "Monitoring, evaluation & documentation",
+];
+
+const budget = [
+  ["Equipment (solar panels, structure, irrigation, IoT sensors)", "€5,500"],
+  ["AI / data-processing workstation", "€1,500"],
+  ["Software, cloud & connectivity", "€2,000"],
+  ["Seeds & plant material", "€1,500"],
+  ["Field work & student stipends", "€4,000"],
+  ["Services (agronomist, environmental expert)", "€1,000"],
+  ["Travel", "€1,000"],
+  ["Conferences, workshops & training", "€2,500"],
+  ["Publication & dissemination", "€1,000"],
+];
+
+const team = [
+  {
+    name: "Alpha Abdoulaye Lansar",
+    role: "General Coordinator & Technical Lead",
+    org: "Founder, Sahel ClimaTech Group",
+    initials: "AL",
+  },
+  { name: "Moussa Coulibaly", role: "Agronomy Consultant / Environmental Expert", initials: "MC" },
+  {
+    name: "Aminata Baye Konaké",
+    role: "Embedded Systems Developer",
+    org: "EUTG — Industrial Computing",
+    initials: "AK",
+  },
+  {
+    name: "Hamed Diawara",
+    role: "Software Developer",
+    org: "EUTG — Electronics & Automation",
+    initials: "HD",
+  },
+  {
+    name: "Youssouf Diawara",
+    role: "Institutional Supervisor",
+    org: "Director General, EUTG",
+    initials: "YD",
+  },
+];
+---
+
+<BaseLayout
+  lang="en"
+  path="/en/projects/forosun-tech/"
+  title="ForoSun-Tech — Smart solar greenhouse"
+  description="ForoSun-Tech: a 144 m² smart solar greenhouse for climate-resilient agriculture, selected by the WASCAL WISE Grant program. Budget, team, timeline and objectives."
+>
+  <section class="relative overflow-hidden bg-brand-950">
+    <div
+      class="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-brand-700/40 blur-3xl"
+    >
+    </div>
+    <div class="container-page relative py-20 sm:py-24">
+      <div class="flex flex-wrap items-center gap-2">
+        <Badge tone="gold" class="bg-white/10 text-gold-300 ring-white/20">Flagship project</Badge>
+        <Badge tone="neutral" class="bg-white/10 text-white ring-white/20">
+          Selected for funding — contracting in progress
+        </Badge>
+      </div>
+      <h1 class="mt-5 max-w-3xl text-4xl font-bold text-white sm:text-5xl">ForoSun-Tech</h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-brand-100">
+        Energy–Water–Food Nexus: a smart solar-powered greenhouse for climate-resilient agriculture
+        in the Sahel.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-brand-200">
+        <span class="flex items-center gap-2"
+          ><Icon name="pin" class="size-4 text-gold-400" /> Marakacoungo, Koulikoro region, Mali</span
+        >
+        <span class="flex items-center gap-2"
+          ><Icon name="target" class="size-4 text-gold-400" /> Duration: 15 months</span
+        >
+        <span class="flex items-center gap-2"
+          ><Icon name="funder" class="size-4 text-gold-400" /> Budget: €20,000 — WASCAL WISE Grant</span
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-20 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-[1.3fr_1fr]">
+      <div class="prose-body">
+        <SectionHeading eyebrow="The project" title="A pilot greenhouse for food sovereignty" />
+        <p class="mt-5">
+          ForoSun-Tech designs, deploys and validates a smart solar greenhouse combining IoT,
+          artificial intelligence and renewable energy to optimize irrigation, indoor climate, pest
+          management and agricultural productivity — with <strong>tomato</strong> as the pilot crop.
+        </p>
+        <p>
+          The experimental site covers <strong>144 m²</strong> (36 m × 4 m) on a 6-hectare domain in Marakacoungo,
+          where a borehole and water tower are already available. The project is led by <strong
+            >Sahel ClimaTech Group</strong
+          > in partnership with the École Universitaire de Technologie et de Gestion (EUTG), which hosts
+          the experimental site and labs, and ADKT (Association pour le Développement de Kalaban Tiébani)
+          for community training.
+        </p>
+        <h3 class="mt-8 text-xl font-semibold text-ink-950">Funding status</h3>
+        <p>
+          The project was <strong>selected for funding</strong> by the WASCAL WISE team after technical
+          and financial evaluation, based on an application signed in December 2025. The grant award remains
+          <strong
+            >subject to completion of WASCAL's administrative and contractual procedures</strong
+          >: at this stage, selection is confirmed but no funds have yet been disbursed.
+        </p>
+
+        <h3 class="mt-8 text-xl font-semibold text-ink-950">Implementation plan — 9 phases</h3>
+        <ol class="mt-4 space-y-2">
+          {
+            phases.map((phase, i) => (
+              <li class="flex gap-3 text-ink-700">
+                <span class="font-mono text-sm font-semibold text-gold-600">
+                  {String(i).padStart(2, "0")}
+                </span>
+                <span>{phase}</span>
+              </li>
+            ))
+          }
+        </ol>
+
+        <h3 class="mt-8 text-xl font-semibold text-ink-950">Indicative budget breakdown</h3>
+        <p class="text-sm text-ink-500">
+          Total budget: €20,000 — disbursed in three tranches (40% / 40% / 20%).
+        </p>
+        <div class="mt-4 overflow-hidden rounded-xl border border-ink-100">
+          <table class="w-full text-sm">
+            <tbody>
+              {
+                budget.map(([label, amount], i) => (
+                  <tr class={i % 2 === 0 ? "bg-white" : "bg-ink-50/60"}>
+                    <td class="px-4 py-3 text-ink-700">{label}</td>
+                    <td class="px-4 py-3 text-right font-semibold text-ink-950">{amount}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="space-y-6">
+        <div class="rounded-2xl border border-ink-100 bg-brand-50/60 p-6">
+          <h3 class="text-sm font-bold uppercase tracking-wide text-brand-700">
+            Targeted outcomes
+          </h3>
+          <div class="mt-4 grid grid-cols-2 gap-3">
+            <StatCard value="65–80%" label="Water savings" />
+            <StatCard value="3–6×" label="Yield vs. open field" />
+            <StatCard value="≥90%" label="AI model accuracy" />
+            <StatCard value="300+" label="Beneficiaries trained" />
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wide text-ink-500">Project team</h3>
+          <div class="mt-4 space-y-3">
+            {
+              team.map((m) => (
+                <TeamMember name={m.name} role={m.role} org={m.org} initials={m.initials} />
+              ))
+            }
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <CTASection
+    title="Follow or support ForoSun-Tech"
+    description="Researchers, agronomists, engineers or funders: this project is a gateway into the Sahel ClimaTech ecosystem."
+    primaryLabel="Get in touch"
+    primaryHref="/en/contact/"
+    secondaryLabel="See partnerships"
+    secondaryHref="/en/partners/"
+  />
+</BaseLayout>

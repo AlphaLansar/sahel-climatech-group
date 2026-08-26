@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { SITE } from "../consts";
+---
+
+<BaseLayout
+  lang="fr"
+  path="/mentions-legales/"
+  title="Mentions légales"
+  description="Informations légales relatives à Sahel ClimaTech Group SASU, société en cours de constitution au Mali."
+>
+  <PageHeader eyebrow="Informations légales" title="Mentions légales" />
+
+  <section class="container-page py-16 sm:py-20">
+    <div class="prose-body mx-auto max-w-3xl">
+      <p class="rounded-xl border border-gold-200 bg-gold-50 px-5 py-4 text-sm text-gold-900">
+        <strong>Sahel ClimaTech Group</strong> est une Société par Actions Simplifiée Unipersonnelle (SASU)
+        <strong>en cours de constitution</strong> auprès du Guichet Unique de l'Agence pour la Promotion
+        des Investissements (API-Mali), sous le droit OHADA (AUSCGIE). L'immatriculation au Registre du
+        Commerce et du Crédit Mobilier (RCCM) est en cours d'attribution.
+      </p>
+
+      <h2 class="mt-8 text-xl font-semibold text-ink-950">Identité de la société</h2>
+      <ul>
+        <li><strong>Dénomination :</strong> {SITE.legalName}</li>
+        <li>
+          <strong>Forme juridique :</strong> Société par Actions Simplifiée Unipersonnelle (SASU), en
+          cours de constitution
+        </li>
+        <li><strong>Capital social :</strong> 10 000 FCFA</li>
+        <li><strong>Siège social :</strong> {SITE.address}</li>
+        <li><strong>Président / associé unique :</strong> Monsieur Alpha Abdoulaye Lansar</li>
+        <li>
+          <strong>Droit applicable :</strong> Acte Uniforme OHADA relatif au droit des sociétés commerciales
+          et du GIE (AUSCGIE), lois de la République du Mali
+        </li>
+      </ul>
+
+      <h2 class="mt-8 text-xl font-semibold text-ink-950">Objet social (résumé)</h2>
+      <p>
+        Recherche appliquée, expérimentation et développement de solutions technologiques dans les
+        domaines du climat, de l'environnement, de l'agriculture, de l'eau et de l'énergie ;
+        conception de systèmes d'intelligence artificielle, de science des données, d'IoT, de
+        systèmes embarqués et de robotique ; formation professionnelle et académique ; conseil et
+        accompagnement technologique ; participation à des programmes de recherche et d'innovation,
+        seule ou en consortium.
+      </p>
+
+      <h2 class="mt-8 text-xl font-semibold text-ink-950">Contact</h2>
+      <ul>
+        <li>
+          <strong>Email :</strong>
+          <a href={`mailto:${SITE.contactEmail}`} class="link-underline">{SITE.contactEmail}</a>
+        </li>
+        <li><strong>Adresse :</strong> {SITE.address}</li>
+      </ul>
+
+      <h2 class="mt-8 text-xl font-semibold text-ink-950">Hébergement du site</h2>
+      <p>
+        Ce site est hébergé par <strong>GitHub, Inc.</strong> (GitHub Pages), 88 Colin P. Kelly Jr. Street,
+        San Francisco, CA 94107, États-Unis.
+      </p>
+
+      <h2 class="mt-8 text-xl font-semibold text-ink-950">Financements mentionnés</h2>
+      <p>
+        Le projet ForoSun-Tech a été <strong>sélectionné pour financement</strong> par le programme WASCAL
+        WISE Grant. Cette sélection est soumise à l'achèvement des procédures administratives et contractuelles
+        de WASCAL ; à la date de publication de ce site, aucun fonds n'a été décaissé. Les informations
+        relatives à ce projet sont présentées à titre indicatif et seront mises à jour au fil de son avancement.
+      </p>
+
+      <h2 class="mt-8 text-xl font-semibold text-ink-950">Propriété intellectuelle</h2>
+      <p>
+        Le contenu éditorial, les textes et l'identité visuelle de Sahel ClimaTech Group présentés
+        sur ce site sont la propriété de la société. Le code source du site est distribué sous
+        licence MIT (voir le dépôt GitHub du projet).
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import PillarCard from "../../components/PillarCard.astro";
+import CTASection from "../../components/CTASection.astro";
+import type { IconName } from "../../components/Icon.astro";
+
+const pillars: { icon: IconName; title: string; description: string }[] = [
+  {
+    icon: "climate",
+    title: "Climate & resilience",
+    description:
+      "Climate risk analysis, climate services, early-warning systems and decision-support tools.",
+  },
+  {
+    icon: "leaf",
+    title: "Environment & natural resources",
+    description:
+      "Biodiversity monitoring, land degradation, soil quality and ecosystem restoration.",
+  },
+  {
+    icon: "droplet",
+    title: "Agriculture & food systems",
+    description:
+      "Precision agriculture, smart irrigation, water-stress detection and yield forecasting.",
+  },
+  {
+    icon: "droplet",
+    title: "Water & hydric resilience",
+    description:
+      "Soil moisture monitoring, agricultural water management and consumption optimization.",
+  },
+  {
+    icon: "sun",
+    title: "Energy & clean technologies",
+    description:
+      "Solar energy, energy efficiency, storage, energy monitoring and autonomous systems.",
+  },
+  {
+    icon: "cpu",
+    title: "Data science & AI",
+    description:
+      "Machine learning, deep learning, computer vision, time series and predictive models.",
+  },
+  {
+    icon: "satellite",
+    title: "Earth observation & geodata",
+    description:
+      "Remote sensing, satellite imagery, GIS and multi-source environmental data analysis.",
+  },
+  {
+    icon: "robot",
+    title: "Robotics & intelligent systems",
+    description: "Mobile robotics, navigation, perception, sensor fusion and field automation.",
+  },
+  {
+    icon: "iot",
+    title: "IoT, Edge AI & embedded systems",
+    description: "Microcontrollers, sensors, IoT networks, TinyML and low-power data gateways.",
+  },
+  {
+    icon: "flask",
+    title: "Research, science & innovation",
+    description:
+      "Experimentation, prototyping, scientific publications, datasets and collaborative research.",
+  },
+  {
+    icon: "graduation",
+    title: "Training & capacity building",
+    description:
+      "Training programs in AI, data science, robotics, IoT, electronics and tech entrepreneurship.",
+  },
+  {
+    icon: "youth",
+    title: "Youth, STEM & education",
+    description: "Science clubs, hackathons, competitions, tech camps and youth mentoring.",
+  },
+  {
+    icon: "rocket",
+    title: "Entrepreneurship & innovation",
+    description: "Incubation, project support, MVP prototyping and investor matchmaking.",
+  },
+  {
+    icon: "digital",
+    title: "Digital transformation",
+    description:
+      "Digital platforms, data collection, automation and dashboards for NGOs and institutions.",
+  },
+];
+---
+
+<BaseLayout
+  lang="en"
+  path="/en/focus-areas/"
+  title="Focus areas"
+  description="Fourteen complementary focus areas: climate, environment, agriculture, water, energy, AI, robotics, IoT, research, training, youth, entrepreneurship and digital transformation."
+>
+  <PageHeader
+    eyebrow="Focus areas"
+    title="Fourteen pillars, one ambition"
+    description="Sahel ClimaTech Group is not limited to a single product or sector. The organization develops programs, projects, services and technologies to address the Sahel's interdependent challenges."
+  />
+
+  <section class="container-page py-20 sm:py-24">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {pillars.map((p) => <PillarCard icon={p.icon} title={p.title} description={p.description} />)}
+    </div>
+  </section>
+
+  <section class="bg-brand-50/60 py-16">
+    <div class="container-page">
+      <p class="mx-auto max-w-3xl text-center text-lg leading-relaxed text-ink-700">
+        <strong class="text-ink-950"
+          >Cross-cutting program — Climate Data &amp; Intelligence:</strong
+        >
+        collect, integrate, analyze, understand, predict and decide, combining climate, environment, agriculture,
+        data, AI, IoT and remote sensing.
+      </p>
+    </div>
+  </section>
+
+  <CTASection
+    title="Have a project in one of these areas?"
+    description="Let's talk about research, training, data or prototyping — we welcome collaboration."
+    primaryLabel="Get in touch"
+    primaryHref="/en/contact/"
+    secondaryLabel="See ForoSun-Tech"
+    secondaryHref="/en/projects/forosun-tech/"
+  />
+</BaseLayout>

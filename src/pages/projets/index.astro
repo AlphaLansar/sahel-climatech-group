@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Badge from "../../components/Badge.astro";
+import Icon from "../../components/Icon.astro";
+---
+
+<BaseLayout
+  lang="fr"
+  path="/projets/"
+  title="Projets"
+  description="ForoSun-Tech : serre solaire intelligente pour une agriculture résiliente au climat, projet phare de Sahel ClimaTech Group sélectionné par le programme WASCAL WISE Grant."
+>
+  <PageHeader
+    eyebrow="Projets"
+    title="De la recherche au prototype de terrain"
+    description="Chaque projet Sahel ClimaTech combine science, données et technologie pour répondre à un problème concret du Sahel."
+  />
+
+  <section class="container-page py-20 sm:py-24">
+    <a
+      href="/projets/forosun-tech/"
+      class="group grid gap-8 rounded-3xl border border-ink-100 bg-white p-8 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center"
+    >
+      <div>
+        <div class="flex flex-wrap items-center gap-2">
+          <Badge tone="gold">Projet phare</Badge>
+          <Badge tone="brand">Sélectionné pour financement — WASCAL WISE Grant</Badge>
+        </div>
+        <h2 class="mt-4 text-2xl font-bold text-ink-950 sm:text-3xl">ForoSun-Tech</h2>
+        <p class="mt-1 text-base font-medium text-brand-700">
+          Serre solaire intelligente pour une agriculture résiliente au climat
+        </p>
+        <p class="mt-4 max-w-2xl leading-relaxed text-ink-600">
+          Une serre pilote de 144 m² à Marakacoungo (région de Koulikoro, Mali), combinant IoT,
+          énergie solaire et intelligence artificielle pour optimiser l'irrigation, le climat
+          intérieur et la productivité agricole. Portée avec l'EUTG et l'ADKT.
+        </p>
+        <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-500">
+          <span class="flex items-center gap-1.5"
+            ><Icon name="pin" class="size-4" /> Marakacoungo, Koulikoro</span
+          >
+          <span class="flex items-center gap-1.5"
+            ><Icon name="target" class="size-4" /> 15 mois</span
+          >
+          <span class="flex items-center gap-1.5"
+            ><Icon name="funder" class="size-4" /> 20 000 EUR — WASCAL WISE Grant</span
+          >
+        </div>
+      </div>
+      <span
+        class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 lg:whitespace-nowrap"
+      >
+        Voir le projet <Icon
+          name="arrow-right"
+          class="size-4 transition-transform group-hover:translate-x-1"
+        />
+      </span>
+    </a>
+
+    <div class="mt-10 rounded-2xl border border-dashed border-ink-200 p-8 text-center">
+      <p class="text-sm text-ink-500">
+        D'autres projets de recherche appliquée et de formation sont en préparation. Revenez bientôt
+        — ou <a href="/contact/" class="font-semibold text-brand-700 link-underline"
+          >contactez-nous</a
+        >
+        pour construire le prochain ensemble.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

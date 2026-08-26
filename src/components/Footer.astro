@@ -1,0 +1,101 @@
+---
+import Icon from "./Icon.astro";
+import { NAV, FOOTER_LINKS, SITE, type Lang } from "../consts";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const year = new Date().getFullYear();
+
+const copy = {
+  fr: {
+    blurb:
+      "Structure malienne d'innovation, de recherche appliquée et de technologie au service de la résilience climatique, environnementale et agricole du Sahel.",
+    nav: "Navigation",
+    contact: "Contact",
+    status: "SASU en cours de constitution — Bamako, Mali",
+    rights: `© ${year} ${SITE.name}. Tous droits réservés.`,
+    builtWith: "Site conçu et développé en interne — hébergé sur GitHub Pages.",
+  },
+  en: {
+    blurb:
+      "A Malian innovation, applied research and technology organization for climate, environmental and agricultural resilience in the Sahel.",
+    nav: "Navigation",
+    contact: "Contact",
+    status: "SASU under incorporation — Bamako, Mali",
+    rights: `© ${year} ${SITE.name}. All rights reserved.`,
+    builtWith: "Designed and built in-house — hosted on GitHub Pages.",
+  },
+}[lang];
+---
+
+<footer class="border-t border-ink-100 bg-ink-950 text-ink-300">
+  <div class="container-page grid gap-10 py-14 lg:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <a href={lang === "fr" ? "/" : "/en/"} class="flex items-center gap-2.5">
+        <img
+          src={`${base}assets/brand/logo-mark.png`}
+          alt=""
+          width="32"
+          height="27"
+          class="h-7 w-auto"
+        />
+        <span class="text-base font-bold text-white">Sahel ClimaTech Group</span>
+      </a>
+      <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink-400">{copy.blurb}</p>
+      <p class="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-gold-400">
+        <Icon name="pin" class="size-3.5" />
+        {copy.status}
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-xs font-bold uppercase tracking-wider text-ink-400">{copy.nav}</h3>
+      <ul class="mt-4 space-y-2.5">
+        {
+          NAV.map((item) => (
+            <li>
+              <a href={item[lang].href} class="text-sm text-ink-300 hover:text-white">
+                {item[lang].label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-xs font-bold uppercase tracking-wider text-ink-400">{copy.contact}</h3>
+      <ul class="mt-4 space-y-2.5 text-sm text-ink-300">
+        <li class="flex items-start gap-2">
+          <Icon name="mail" class="mt-0.5 size-4 shrink-0 text-brand-400" />
+          <a href={`mailto:${SITE.contactEmail}`} class="hover:text-white">{SITE.contactEmail}</a>
+        </li>
+        <li class="flex items-start gap-2">
+          <Icon name="pin" class="mt-0.5 size-4 shrink-0 text-brand-400" />
+          <span>{SITE.address}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div
+      class="container-page flex flex-col gap-3 py-6 text-xs text-ink-500 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>{copy.rights}</p>
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+        {
+          FOOTER_LINKS[lang].map((link) => (
+            <a href={link.href} class="hover:text-ink-200">
+              {link.label}
+            </a>
+          ))
+        }
+        <span class="text-ink-600">{copy.builtWith}</span>
+      </div>
+    </div>
+  </div>
+</footer>

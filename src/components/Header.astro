@@ -1,0 +1,122 @@
+---
+import Icon from "./Icon.astro";
+import Button from "./Button.astro";
+import { NAV, ROUTE_ALTERNATES, SITE, type Lang } from "../consts";
+
+interface Props {
+  lang: Lang;
+  path: string;
+}
+const { lang, path } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const homeHref = lang === "fr" ? "/" : "/en/";
+const contactItem = NAV.find((item) => item.key === "contact")!;
+const altPath = ROUTE_ALTERNATES[path];
+const langLabel = lang === "fr" ? "EN" : "FR";
+
+const isActive = (href: string) => (href === homeHref ? path === href : path.startsWith(href));
+---
+
+<header class="sticky top-0 z-40 border-b border-ink-100/80 bg-white/85 backdrop-blur-md">
+  <div class="container-page flex h-18 items-center justify-between gap-4 py-3">
+    <a href={homeHref} class="flex shrink-0 items-center gap-2.5">
+      <img
+        src={`${base}assets/brand/logo-mark.png`}
+        alt={SITE.name}
+        width="36"
+        height="30"
+        class="h-8 w-auto"
+      />
+      <span class="hidden text-base font-bold leading-none text-ink-950 sm:block">
+        Sahel <span class="text-brand-600">ClimaTech</span> Group
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+      {
+        NAV.filter((item) => item.key !== "contact").map((item) => {
+          const entry = item[lang];
+          return (
+            <a
+              href={entry.href}
+              aria-current={isActive(entry.href) ? "page" : undefined}
+              class={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+                isActive(entry.href)
+                  ? "bg-brand-50 text-brand-700"
+                  : "text-ink-600 hover:bg-ink-50 hover:text-ink-900"
+              }`}
+            >
+              {entry.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="hidden items-center gap-2 lg:flex">
+      {
+        altPath && (
+          <a
+            href={altPath}
+            class="rounded-full px-3 py-2 text-sm font-semibold text-ink-500 ring-1 ring-inset ring-ink-200 transition-colors hover:text-ink-900 hover:ring-ink-400"
+            aria-label={lang === "fr" ? "Switch to English" : "Passer en français"}
+          >
+            {langLabel}
+          </a>
+        )
+      }
+      <Button href={contactItem[lang].href} variant="primary">{contactItem[lang].label}</Button>
+    </div>
+
+    <button
+      id="nav-toggle"
+      type="button"
+      class="inline-flex items-center justify-center rounded-full p-2.5 text-ink-700 ring-1 ring-inset ring-ink-200 lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      aria-label={lang === "fr" ? "Ouvrir le menu" : "Open menu"}
+    >
+      <Icon name="menu" class="size-5" />
+    </button>
+  </div>
+
+  <div
+    id="mobile-nav"
+    class="hidden flex-col gap-1 border-t border-ink-100 bg-white px-5 pb-5 pt-3 lg:hidden"
+  >
+    {
+      NAV.map((item) => {
+        const entry = item[lang];
+        return (
+          <a
+            href={entry.href}
+            class={`rounded-lg px-3 py-2.5 text-base font-medium ${
+              isActive(entry.href) ? "bg-brand-50 text-brand-700" : "text-ink-700"
+            }`}
+          >
+            {entry.label}
+          </a>
+        );
+      })
+    }
+    {
+      altPath && (
+        <a href={altPath} class="rounded-lg px-3 py-2.5 text-base font-medium text-ink-500">
+          {lang === "fr" ? "English version" : "Version française"}
+        </a>
+      )
+    }
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const panel = document.getElementById("mobile-nav");
+  toggle?.addEventListener("click", () => {
+    const willOpen = panel?.classList.contains("hidden");
+    panel?.classList.toggle("hidden");
+    panel?.classList.toggle("flex");
+    toggle.setAttribute("aria-expanded", String(!!willOpen));
+  });
+</script>

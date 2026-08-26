@@ -1,0 +1,21 @@
+{
+  "name": "Sahel ClimaTech Group",
+  "short_name": "Sahel ClimaTech",
+  "description": "Innovation, recherche appliqu\u00e9e et technologies pour la r\u00e9silience climatique du Sahel.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0E7A42",
+  "icons": [
+    {
+      "src": "/assets/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

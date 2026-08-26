@@ -1,0 +1,134 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import PillarCard from "../components/PillarCard.astro";
+import CTASection from "../components/CTASection.astro";
+import type { IconName } from "../components/Icon.astro";
+
+const pillars: { icon: IconName; title: string; description: string }[] = [
+  {
+    icon: "climate",
+    title: "Climat & résilience",
+    description:
+      "Analyse des risques climatiques, services climatiques, systèmes d'alerte et outils d'aide à la décision pour l'adaptation.",
+  },
+  {
+    icon: "leaf",
+    title: "Environnement & ressources naturelles",
+    description:
+      "Suivi de la biodiversité, de la dégradation des terres, de la qualité des sols et de la restauration des écosystèmes.",
+  },
+  {
+    icon: "droplet",
+    title: "Agriculture & systèmes alimentaires",
+    description:
+      "Agriculture de précision, irrigation intelligente, détection du stress hydrique et prévision des rendements.",
+  },
+  {
+    icon: "droplet",
+    title: "Eau & résilience hydrique",
+    description:
+      "Suivi de l'humidité des sols, gestion de l'eau agricole et optimisation de la consommation en eau.",
+  },
+  {
+    icon: "sun",
+    title: "Énergie & technologies propres",
+    description:
+      "Énergie solaire, efficacité énergétique, stockage, monitoring énergétique et systèmes autonomes.",
+  },
+  {
+    icon: "cpu",
+    title: "Science des données & IA",
+    description:
+      "Machine learning, deep learning, computer vision, séries temporelles et modèles prédictifs.",
+  },
+  {
+    icon: "satellite",
+    title: "Observation de la Terre & géodonnées",
+    description:
+      "Télédétection, imagerie satellitaire, SIG et analyse de données environnementales multi-sources.",
+  },
+  {
+    icon: "robot",
+    title: "Robotique & systèmes intelligents",
+    description:
+      "Robotique mobile, navigation, perception, fusion de capteurs et automatisation appliquée au terrain.",
+  },
+  {
+    icon: "iot",
+    title: "IoT, Edge AI & systèmes embarqués",
+    description:
+      "Microcontrôleurs, capteurs, réseaux IoT, TinyML et passerelles de données basse consommation.",
+  },
+  {
+    icon: "flask",
+    title: "Recherche, science & innovation",
+    description:
+      "Expérimentation, prototypage, publications scientifiques, datasets et projets de recherche collaboratifs.",
+  },
+  {
+    icon: "graduation",
+    title: "Formation & compétences",
+    description:
+      "Programmes de formation en IA, data science, robotique, IoT, électronique et entrepreneuriat technologique.",
+  },
+  {
+    icon: "youth",
+    title: "Jeunesse, STEM & éducation",
+    description:
+      "Clubs scientifiques, hackathons, compétitions, camps technologiques et mentorat pour les jeunes.",
+  },
+  {
+    icon: "rocket",
+    title: "Entrepreneuriat & innovation",
+    description:
+      "Incubation, accompagnement de projets, prototypage de MVP et mise en relation avec des investisseurs.",
+  },
+  {
+    icon: "digital",
+    title: "Transformation numérique",
+    description:
+      "Plateformes numériques, collecte de données, automatisation et tableaux de bord pour ONG et institutions.",
+  },
+];
+---
+
+<BaseLayout
+  lang="fr"
+  path="/domaines/"
+  title="Domaines d'intervention"
+  description="Quatorze domaines complémentaires : climat, environnement, agriculture, eau, énergie, IA, robotique, IoT, recherche, formation, jeunesse, entrepreneuriat et transformation numérique."
+>
+  <PageHeader
+    eyebrow="Domaines d'intervention"
+    title="Quatorze piliers, une même ambition"
+    description="Sahel ClimaTech Group n'est pas limitée à un seul produit ou secteur. La société développe des programmes, projets, services et technologies pour répondre aux défis interdépendants du Sahel."
+  />
+
+  <section class="container-page py-20 sm:py-24">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {pillars.map((p) => <PillarCard icon={p.icon} title={p.title} description={p.description} />)}
+    </div>
+  </section>
+
+  <section class="bg-brand-50/60 py-16">
+    <div class="container-page">
+      <p class="mx-auto max-w-3xl text-center text-lg leading-relaxed text-ink-700">
+        <strong class="text-ink-950"
+          >Programme transversal — Climate Data &amp; Intelligence :</strong
+        >
+        collecter, intégrer, analyser, comprendre, prédire et décider, en combinant climat, environnement,
+        agriculture, données, IA, IoT et télédétection.
+      </p>
+    </div>
+  </section>
+
+  <CTASection
+    title="Un projet dans l'un de ces domaines ?"
+    description="Parlons de recherche, de formation, de données ou de prototypage — nous sommes ouverts aux collaborations."
+    primaryLabel="Nous contacter"
+    primaryHref="/contact/"
+    secondaryLabel="Voir ForoSun-Tech"
+    secondaryHref="/projets/forosun-tech/"
+  />
+</BaseLayout>

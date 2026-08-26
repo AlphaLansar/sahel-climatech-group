@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import TeamMember from "../../components/TeamMember.astro";
+import PhotoFeature from "../../components/PhotoFeature.astro";
+import CTASection from "../../components/CTASection.astro";
+import teamPhoto from "../../assets/photos/team-group-photo.jpg";
+
+const projectTeam = [
+  { name: "Moussa Coulibaly", role: "Agronomy Consultant / Environmental Expert", initials: "MC" },
+  {
+    name: "Aminata Baye Konaké",
+    role: "Embedded Systems Developer",
+    org: "EUTG — Industrial Computing",
+    initials: "AK",
+  },
+  {
+    name: "Hamed Diawara",
+    role: "Software Developer",
+    org: "EUTG — Electronics & Automation",
+    initials: "HD",
+  },
+  {
+    name: "Youssouf Diawara",
+    role: "Institutional Supervisor",
+    org: "Director General, EUTG",
+    initials: "YD",
+  },
+];
+---
+
+<BaseLayout
+  lang="en"
+  path="/en/team/"
+  title="Team"
+  description="The founding team of Sahel ClimaTech Group and the technical core of the ForoSun-Tech project, in Bamako, Mali."
+>
+  <PageHeader
+    eyebrow="Team"
+    title="A technical team rooted in the field"
+    description="Sahel ClimaTech Group is led by a founder and draws on a network of collaborators, students and academic partners centered around EUTG's Robotics & AI lab."
+  />
+
+  <section class="container-page py-20 sm:py-24">
+    <div
+      class="grid gap-10 rounded-3xl border border-ink-100 bg-white p-8 shadow-soft lg:grid-cols-[auto_1fr] lg:items-center sm:p-10"
+    >
+      <div
+        class="flex size-24 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 text-2xl font-bold text-white"
+      >
+        AL
+      </div>
+      <div>
+        <p class="text-xl font-bold text-ink-950">Alpha Abdoulaye Lansar</p>
+        <p class="mt-1 text-base font-medium text-brand-700">
+          Founder & President — Sahel ClimaTech Group
+        </p>
+        <p class="mt-4 max-w-2xl leading-relaxed text-ink-600">
+          Coordinator of the Robotics &amp; AI lab at the École Universitaire de Technologie et de
+          Gestion (EUTG), Alpha leads the general coordination and technical direction of Sahel
+          ClimaTech Group and its flagship project, ForoSun-Tech, selected by the WASCAL WISE Grant
+          program.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div>
+        <SectionHeading
+          eyebrow="Technical core — ForoSun-Tech"
+          title="A tripartite EUTG · ADKT · Sahel ClimaTech partnership"
+          description="Sahel ClimaTech's first demonstrator project brings together a multidisciplinary team: agronomy, embedded systems, software development and institutional oversight."
+        />
+        <div class="mt-6 space-y-3">
+          {
+            projectTeam.map((m) => (
+              <TeamMember name={m.name} role={m.role} org={m.org} initials={m.initials} />
+            ))
+          }
+        </div>
+      </div>
+      <PhotoFeature
+        image={teamPhoto}
+        alt="Team and students of the Robotics & AI lab gathered at EUTG, Bamako"
+        caption="Students, mentors and partners of the Robotics & AI lab — EUTG, Bamako"
+      />
+    </div>
+  </section>
+
+  <CTASection
+    title="Join or support the team"
+    description="Sahel ClimaTech Group welcomes researchers, engineers, agronomists and students who want to contribute to its projects."
+    primaryLabel="Get in touch"
+    primaryHref="/en/contact/"
+    secondaryLabel="See our focus areas"
+    secondaryHref="/en/focus-areas/"
+  />
+</BaseLayout>

@@ -1,0 +1,43 @@
+{
+  "name": "sahel-climatech-group-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine officiel de Sahel ClimaTech Group SASU — Innovation, recherche appliquée et technologies pour la résilience climatique du Sahel.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Sahel ClimaTech Group",
+  "homepage": "https://sahelclimatech.com",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "npm@11.17.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.2.7",
+    "@astrojs/sitemap": "^3.7.3",
+    "tailwindcss": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@typescript-eslint/parser": "^8.68.0",
+    "astro-eslint-parser": "^3.1.0",
+    "eslint": "^10.9.1",
+    "eslint-plugin-astro": "^3.1.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "sharp": "^0.35.4",
+    "typescript": "^5.9.0"
+  }
+}

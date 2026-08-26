@@ -1,0 +1,273 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Badge from "../components/Badge.astro";
+import Button from "../components/Button.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import PillarCard from "../components/PillarCard.astro";
+import StatCard from "../components/StatCard.astro";
+import CTASection from "../components/CTASection.astro";
+import PhotoFeature from "../components/PhotoFeature.astro";
+import Icon from "../components/Icon.astro";
+import teamPhoto from "../assets/photos/team-group-photo.jpg";
+
+const pillars = [
+  {
+    icon: "climate" as const,
+    title: "Climat & résilience",
+    description:
+      "Analyse des risques climatiques, services climatiques et outils d'aide à la décision.",
+  },
+  {
+    icon: "leaf" as const,
+    title: "Environnement",
+    description: "Suivi des écosystèmes, dégradation des terres et ressources naturelles.",
+  },
+  {
+    icon: "droplet" as const,
+    title: "Agriculture & eau",
+    description: "Agriculture intelligente, irrigation de précision et sécurité alimentaire.",
+  },
+  {
+    icon: "sun" as const,
+    title: "Énergie propre",
+    description: "Solutions solaires, monitoring énergétique et systèmes autonomes.",
+  },
+  {
+    icon: "cpu" as const,
+    title: "IA & science des données",
+    description: "Modèles prédictifs, vision par ordinateur et séries temporelles.",
+  },
+  {
+    icon: "iot" as const,
+    title: "IoT & Edge AI",
+    description: "Capteurs, systèmes embarqués et intelligence en périphérie de réseau.",
+  },
+  {
+    icon: "robot" as const,
+    title: "Robotique",
+    description: "Systèmes autonomes, perception et automatisation appliquée au terrain.",
+  },
+  {
+    icon: "graduation" as const,
+    title: "Formation",
+    description: "Renforcement des compétences en IA, data, robotique et technologies climatiques.",
+  },
+];
+---
+
+<BaseLayout
+  lang="fr"
+  path="/"
+  title="Sahel ClimaTech Group — Innovation et technologies pour le Sahel"
+  description="Structure malienne d'innovation, de recherche appliquée et de technologie dédiée à la résilience climatique, environnementale et agricole du Sahel."
+>
+  <!-- Hero -->
+  <section
+    class="relative overflow-hidden bg-gradient-to-b from-brand-950 via-brand-900 to-brand-950"
+  >
+    <div
+      class="pointer-events-none absolute -right-32 -top-24 h-[28rem] w-[28rem] rounded-full bg-brand-600/30 blur-3xl"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-gold-500/15 blur-3xl"
+    >
+    </div>
+
+    <div
+      class="container-page relative grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+    >
+      <div>
+        <Badge tone="gold" class="bg-white/10 text-gold-300 ring-white/20">
+          Bamako, Mali — Depuis 2024
+        </Badge>
+        <h1 class="mt-6 text-4xl font-bold leading-[1.08] text-white sm:text-5xl lg:text-[3.25rem]">
+          Construire l'écosystème technologique du <span class="text-gold-400">Sahel résilient</span
+          >
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-brand-100">
+          Sahel ClimaTech Group conçoit des solutions d'intelligence artificielle, d'IoT et de
+          recherche appliquée pour le climat, l'environnement, l'agriculture et l'énergie — et forme
+          la prochaine génération d'ingénieurs et de chercheurs africains.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <Button
+            href="/projets/forosun-tech/"
+            variant="accent"
+          >
+            Découvrir ForoSun-Tech
+          </Button>
+          <Button
+            href="/a-propos/"
+            variant="outline"
+          >
+            Notre mission
+          </Button>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-brand-200">
+          <span class="flex items-center gap-2"
+            ><Icon name="check" class="size-4 text-gold-400" /> Lauréat sélectionné — WASCAL WISE Grant</span
+          >
+          <span class="flex items-center gap-2"
+            ><Icon name="check" class="size-4 text-gold-400" /> Partenariat académique EUTG</span
+          >
+        </div>
+      </div>
+
+      <div class="relative">
+        <div
+          class="rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl backdrop-blur-sm sm:p-8"
+        >
+          <div class="mb-6 flex items-center gap-3">
+            <img
+              src={`${import.meta.env.BASE_URL}assets/brand/logo-mark.png`}
+              alt=""
+              class="h-9 w-auto"
+            />
+            <div>
+              <p class="text-sm font-semibold text-white">Sahel ClimaTech Group</p>
+              <p class="text-xs text-brand-300">Climate • Data • AI • Robotics</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            {
+              [
+                { icon: "climate" as const, label: "Climat" },
+                { icon: "droplet" as const, label: "Eau & agriculture" },
+                { icon: "sun" as const, label: "Énergie propre" },
+                { icon: "cpu" as const, label: "IA & données" },
+                { icon: "iot" as const, label: "IoT & Edge AI" },
+                { icon: "robot" as const, label: "Robotique" },
+              ].map((f) => (
+                <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-3">
+                  <Icon name={f.icon} class="size-5 text-gold-400" />
+                  <span class="text-sm font-medium text-white">{f.label}</span>
+                </div>
+              ))
+            }
+          </div>
+          <div class="mt-5 rounded-xl border border-gold-400/20 bg-gold-400/10 px-4 py-3.5">
+            <p class="text-xs font-semibold uppercase tracking-wide text-gold-300">Projet phare</p>
+            <p class="mt-1 text-sm font-medium text-white">
+              ForoSun-Tech — serre solaire intelligente
+            </p>
+            <p class="mt-1 text-xs text-brand-200">WASCAL WISE Grant · EUTG · Bamako</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission strip -->
+  <section class="border-b border-ink-100 bg-brand-50/60">
+    <div class="container-page py-10">
+      <p
+        class="mx-auto max-w-4xl text-center text-lg font-medium leading-relaxed text-ink-800 sm:text-xl"
+      >
+        « Nous ne voulons pas simplement créer des technologies pour le Sahel. Nous voulons
+        contribuer à construire les capacités scientifiques, humaines et technologiques permettant
+        au Sahel de développer ses propres solutions. »
+      </p>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="container-page py-20 sm:py-24">
+    <SectionHeading
+      eyebrow="Domaines d'intervention"
+      title="Une approche multidisciplinaire, au service de problèmes réels"
+      description="Climat, environnement, agriculture, eau, énergie, données, robotique et formation : Sahel ClimaTech relie la recherche, la technologie et le terrain."
+    />
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {pillars.map((p) => <PillarCard icon={p.icon} title={p.title} description={p.description} />)}
+    </div>
+    <div class="mt-8">
+      <Button href="/domaines/" variant="ghost">Voir les 14 domaines d'intervention</Button>
+    </div>
+  </section>
+
+  <!-- Flagship project -->
+  <section class="bg-ink-950 py-20 sm:py-24">
+    <div class="container-page">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div>
+          <Badge tone="gold">Projet phare</Badge>
+          <h2 class="mt-5 text-3xl font-bold text-white sm:text-4xl">ForoSun-Tech</h2>
+          <p class="mt-2 text-base font-medium text-brand-300">
+            Serre solaire intelligente pour une agriculture résiliente au climat
+          </p>
+          <p class="mt-5 max-w-xl leading-relaxed text-ink-300">
+            Une serre pilote de 144 m² à Marakacoungo (région de Koulikoro), combinant énergie
+            solaire, IoT et intelligence artificielle pour optimiser l'irrigation, le climat
+            intérieur et la productivité agricole — avec la tomate comme culture pilote.
+          </p>
+          <p class="mt-4 max-w-xl text-sm leading-relaxed text-ink-400">
+            Projet sélectionné pour financement par le programme <strong class="text-ink-200"
+              >WASCAL WISE Grant</strong
+            >
+            (2025), porté avec l'École Universitaire de Technologie et de Gestion (EUTG) — contractualisation
+            en cours.
+          </p>
+          <div class="mt-8">
+            <Button
+              href="/projets/forosun-tech/"
+              variant="accent"
+            >
+              Voir le projet en détail
+            </Button>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <StatCard value="65–80%" label="Économie d'eau visée grâce à l'irrigation intelligente" />
+          <StatCard value="×3 à ×6" label="Rendement visé vs plein champ (90–120 t/ha)" />
+          <StatCard value="≥90%" label="Précision visée des modèles d'intelligence artificielle" />
+          <StatCard value="300+" label="Agriculteurs, étudiants et chercheurs à former" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real photo: lab / community -->
+  <section class="container-page py-20 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <PhotoFeature
+        image={teamPhoto}
+        alt="Équipe et étudiants du laboratoire Robotique & IA réunis à l'EUTG, Bamako"
+        caption="Notre communauté d'ingénieurs, d'étudiants et de chercheurs — EUTG, Bamako"
+      />
+      <div>
+        <SectionHeading
+          eyebrow="Notre communauté"
+          title="Une nouvelle génération d'ingénieurs et de chercheurs africains"
+          description="Sahel ClimaTech s'appuie sur un noyau technique formé au laboratoire Robotique & IA de l'EUTG, et sur un réseau grandissant d'étudiants, d'enseignants et de partenaires engagés dans la recherche appliquée."
+        />
+        <ul class="mt-6 space-y-3 text-sm text-ink-600">
+          <li class="flex items-start gap-2.5">
+            <Icon name="check" class="mt-0.5 size-4 shrink-0 text-brand-600" /> Encadrement de projets
+            étudiants en IA, robotique et systèmes embarqués
+          </li>
+          <li class="flex items-start gap-2.5">
+            <Icon name="check" class="mt-0.5 size-4 shrink-0 text-brand-600" /> Prototypage terrain et
+            expérimentation continue
+          </li>
+          <li class="flex items-start gap-2.5">
+            <Icon name="check" class="mt-0.5 size-4 shrink-0 text-brand-600" /> Culture de recherche ouverte
+            et collaborative
+          </li>
+        </ul>
+        <div class="mt-6">
+          <Button href="/equipe/" variant="ghost">Rencontrer l'équipe</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Construisons ensemble les solutions climatiques du Sahel"
+    description="Universités, ONG, institutions publiques, entreprises ou bailleurs : explorons comment collaborer sur la recherche, la formation ou le déploiement de solutions technologiques."
+    primaryLabel="Nous contacter"
+    primaryHref="/contact/"
+    secondaryLabel="Voir les partenariats"
+    secondaryHref="/partenaires/"
+  />
+</BaseLayout>

@@ -1,0 +1,235 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import Icon from "../../components/Icon.astro";
+import PhotoFeature from "../../components/PhotoFeature.astro";
+import CTASection from "../../components/CTASection.astro";
+import labPhoto from "../../assets/photos/lab-workshop-session.jpg";
+
+const values = [
+  { title: "Relevance", description: "Answer real field needs, not technology trends." },
+  { title: "Scientific rigor", description: "Document methods, data and results." },
+  { title: "Innovation", description: "Explore new solutions suited to the Sahelian context." },
+  {
+    title: "Accessibility",
+    description: "Account for local cost, energy and connectivity constraints.",
+  },
+  {
+    title: "Sustainability",
+    description: "Favor solutions that are economically, socially and environmentally sound.",
+  },
+  {
+    title: "Inclusion",
+    description: "Particular attention to youth, women and vulnerable communities.",
+  },
+  {
+    title: "Collaboration",
+    description: "Build through partnership rather than institutional isolation.",
+  },
+  {
+    title: "Impact measurement",
+    description: "Define concrete, verifiable indicators for every project.",
+  },
+];
+
+const cycle = [
+  "Identify",
+  "Study",
+  "Measure",
+  "Research",
+  "Prototype",
+  "Experiment",
+  "Evaluate",
+  "Improve",
+  "Deploy",
+  "Transfer",
+];
+
+const roadmap = [
+  {
+    period: "2026–2027",
+    title: "Foundation",
+    items: [
+      "Legal and administrative structuring",
+      "First partnerships",
+      "ForoSun-Tech project",
+      "First training programs",
+    ],
+  },
+  {
+    period: "2027–2028",
+    title: "Consolidation",
+    items: [
+      "Research projects and academic partnerships",
+      "New funding applications",
+      "Digital platform development",
+      "Pilot deployments",
+    ],
+  },
+  {
+    period: "2028–2030",
+    title: "Scale-up",
+    items: [
+      "Consortia and regional projects",
+      "International partnerships",
+      "Climate-Tech & Deep-Tech solutions",
+      "Expanded training programs",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  lang="en"
+  path="/en/about/"
+  title="About — Our mission and vision"
+  description="Sahel ClimaTech Group is a Malian innovation, applied research and technology organization dedicated to climate resilience in the Sahel."
+>
+  <PageHeader
+    eyebrow="About"
+    title="A bridge between science, technology and the communities of the Sahel"
+    description="Sahel ClimaTech Group is a Malian organization in development, focused on innovation, applied research, training and the design of technological solutions suited to the climate, environmental and agricultural challenges of the Sahel."
+  />
+
+  <section class="container-page py-20 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div>
+        <SectionHeading eyebrow="Vision" title="An African innovation ecosystem" />
+        <p class="mt-5 text-lg leading-relaxed text-ink-700">
+          Building an African innovation ecosystem capable of turning science, data, technology and
+          skills into concrete solutions for a resilient, sustainable and intelligent Sahel.
+        </p>
+        <p class="mt-4 leading-relaxed text-ink-600">
+          The Sahel's major challenges — climate, agriculture, water, energy, food security — are
+          interdependent. Addressing them requires an integrated approach combining science, data,
+          technology, fieldwork, training, innovation, financing and cooperation.
+        </p>
+      </div>
+      <div>
+        <SectionHeading eyebrow="Mission" title="From research to impact" />
+        <ul class="mt-5 space-y-4">
+          {
+            [
+              [
+                "Climate resilience",
+                "Designing adaptation solutions for agriculture, water, energy and ecosystems.",
+              ],
+              [
+                "Applied research",
+                "Turning scientific knowledge into prototypes, software and operational services.",
+              ],
+              [
+                "Capacity building",
+                "Training youth, students and professionals in AI, data, robotics and IoT.",
+              ],
+              [
+                "Local innovation",
+                "Developing solutions suited to the realities and constraints of the Sahel.",
+              ],
+              [
+                "Collaboration",
+                "Building bridges between research, universities, business, NGOs and public institutions.",
+              ],
+            ].map(([title, desc]) => (
+              <li class="flex gap-3">
+                <Icon name="check" class="mt-1 size-4 shrink-0 text-brand-600" />
+                <div>
+                  <p class="font-semibold text-ink-950">{title}</p>
+                  <p class="text-sm text-ink-600">{desc}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-50/60 py-20 sm:py-24">
+    <div class="container-page">
+      <SectionHeading
+        align="center"
+        eyebrow="Our method"
+        title="A 10-step intervention cycle"
+        description="From identifying a real problem to transferring solutions to users and partners."
+        class="mx-auto"
+      />
+      <ol class="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-5">
+        {
+          cycle.map((step, i) => (
+            <li class="rounded-xl border border-brand-100 bg-white p-4 text-center">
+              <span class="text-xs font-bold text-gold-600">{String(i + 1).padStart(2, "0")}</span>
+              <p class="mt-1.5 text-sm font-semibold text-ink-900">{step}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="container-page py-20 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <PhotoFeature
+        image={labPhoto}
+        alt="Working session at the Robotics & AI lab, EUTG Bamako"
+        caption="A working session at the Robotics & AI lab — EUTG, Bamako"
+      />
+      <div>
+        <SectionHeading
+          eyebrow="Guiding principles"
+          title="Eight principles behind every project"
+        />
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          {
+            values.map((v) => (
+              <div>
+                <p class="text-sm font-semibold text-brand-700">{v.title}</p>
+                <p class="mt-1 text-sm text-ink-600">{v.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ink-950 py-20 sm:py-24">
+    <div class="container-page">
+      <SectionHeading
+        align="center"
+        eyebrow="Roadmap"
+        title="2026 – 2030"
+        description="A progressive trajectory, from legal structuring to regional scale-up."
+        class="mx-auto text-white [&_p]:text-ink-300 [&_h2]:text-white"
+      />
+      <div class="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
+        {
+          roadmap.map((phase) => (
+            <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <p class="text-xs font-bold uppercase tracking-wide text-gold-400">{phase.period}</p>
+              <p class="mt-1 text-lg font-semibold text-white">{phase.title}</p>
+              <ul class="mt-4 space-y-2">
+                {phase.items.map((item) => (
+                  <li class="flex items-start gap-2 text-sm text-ink-300">
+                    <Icon name="check" class="mt-0.5 size-3.5 shrink-0 text-brand-400" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="Share this vision?"
+    description="Researchers, universities, NGOs, institutions or impact investors: let's discuss how to collaborate."
+    primaryLabel="Get in touch"
+    primaryHref="/en/contact/"
+    secondaryLabel="Meet the team"
+    secondaryHref="/en/team/"
+  />
+</BaseLayout>

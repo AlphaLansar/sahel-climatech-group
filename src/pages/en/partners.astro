@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import PartnerCategory from "../../components/PartnerCategory.astro";
+import CTASection from "../../components/CTASection.astro";
+import Icon from "../../components/Icon.astro";
+
+const categories = [
+  {
+    icon: "graduation" as const,
+    title: "Universities & labs",
+    items: [
+      "Collaborative research",
+      "Internship & thesis supervision",
+      "Scientific publications",
+      "Data exchange",
+    ],
+  },
+  {
+    icon: "handshake" as const,
+    title: "NGOs & agricultural organizations",
+    items: [
+      "Identifying field needs",
+      "Deploying pilot projects",
+      "Training beneficiaries",
+      "Impact measurement",
+    ],
+  },
+  {
+    icon: "building" as const,
+    title: "Public institutions",
+    items: ["Data & studies", "Pilot projects", "Public-policy support", "Training & innovation"],
+  },
+  {
+    icon: "funder" as const,
+    title: "Funders & investors",
+    items: [
+      "Climate finance",
+      "Development programs",
+      "Deep-Tech innovation funds",
+      "Impact investing",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  lang="en"
+  path="/en/partners/"
+  title="Partnerships"
+  description="Sahel ClimaTech Group collaborates with universities, NGOs, public institutions, agricultural organizations and funders to build climate solutions in the Sahel."
+>
+  <PageHeader
+    eyebrow="Partnerships"
+    title="Built through collaboration, not isolation"
+    description="The Sahel's challenges cannot be solved by a single discipline. Sahel ClimaTech Group builds bridges between research, technology, the field and financing."
+  />
+
+  <section class="container-page py-20 sm:py-24">
+    <SectionHeading
+      eyebrow="Who we're looking to meet"
+      title="Four broad partner families"
+      class="mx-auto max-w-2xl text-center"
+      align="center"
+    />
+    <div class="mt-10 grid gap-5 sm:grid-cols-2">
+      {categories.map((c) => <PartnerCategory icon={c.icon} title={c.title} items={c.items} />)}
+    </div>
+  </section>
+
+  <section class="bg-brand-50/60 py-20 sm:py-24">
+    <div class="container-page">
+      <div class="mx-auto max-w-3xl text-center">
+        <SectionHeading
+          align="center"
+          eyebrow="Our value proposition"
+          title="From field problem to impact"
+        />
+        <div
+          class="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm font-semibold text-brand-800"
+        >
+          {
+            [
+              "Field problem",
+              "Research",
+              "Data",
+              "Technology",
+              "Prototype",
+              "Training",
+              "Deployment",
+              "Impact",
+            ].map((step, i, arr) => (
+              <>
+                <span class="rounded-full bg-white px-3.5 py-2 shadow-soft">{step}</span>
+                {i < arr.length - 1 && <Icon name="arrow-right" class="size-4 text-gold-500" />}
+              </>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-20 sm:py-24">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeading
+        eyebrow="Ecosystem"
+        title="Rooted in Mali's and the region's climate ecosystem"
+      />
+      <p class="mt-5 leading-relaxed text-ink-600">
+        Sahel ClimaTech Group aims to position its projects within the national and regional
+        climate-finance ecosystem — including the <strong>Mali Climate Fund</strong> and the
+        <strong>Green Climate Fund</strong> ecosystem — as well as within the <strong>WASCAL</strong
+        >
+        scientific and technical network, whose activities combine climate services, data, research, engineering
+        and training.
+      </p>
+      <p class="mt-4 leading-relaxed text-ink-600">
+        These mechanisms are not treated as automatically accessible funding: every project is built
+        according to the eligibility criteria and rules specific to each partner or funder.
+      </p>
+    </div>
+  </section>
+
+  <CTASection
+    title="Let's explore a collaboration"
+    description="Whether you represent a university, an NGO, a public institution or an investment fund, we welcome the conversation."
+    primaryLabel="Get in touch"
+    primaryHref="/en/contact/"
+  />
+</BaseLayout>

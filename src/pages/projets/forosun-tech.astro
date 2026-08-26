@@ -1,0 +1,201 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Badge from "../../components/Badge.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import StatCard from "../../components/StatCard.astro";
+import TeamMember from "../../components/TeamMember.astro";
+import CTASection from "../../components/CTASection.astro";
+import Icon from "../../components/Icon.astro";
+
+const phases = [
+  "Mobilisation & parties prenantes",
+  "Évaluation préliminaire & préparation du site",
+  "Conception technique & spécifications",
+  "Développement & test du prototype",
+  "Construction de la serre & installation des systèmes",
+  "Culture & suivi agronomique",
+  "Développement et calibration des modèles IA",
+  "Formation & renforcement de capacités",
+  "Suivi, évaluation & documentation",
+];
+
+const budget = [
+  ["Équipement (panneaux solaires, structure, irrigation, capteurs IoT)", "5 500 €"],
+  ["Poste de travail IA / traitement de données", "1 500 €"],
+  ["Logiciels, cloud & connectivité", "2 000 €"],
+  ["Semences & matériel végétal", "1 500 €"],
+  ["Travail de terrain & indemnités étudiants", "4 000 €"],
+  ["Services (agronome, expert environnemental)", "1 000 €"],
+  ["Déplacements", "1 000 €"],
+  ["Conférences, ateliers & formation", "2 500 €"],
+  ["Publication & dissémination", "1 000 €"],
+];
+
+const team = [
+  {
+    name: "Alpha Abdoulaye Lansar",
+    role: "Coordinateur général & Responsable technique",
+    org: "Fondateur, Sahel ClimaTech Group",
+    initials: "AL",
+  },
+  {
+    name: "Moussa Coulibaly",
+    role: "Consultant agronomie / Expert environnemental",
+    initials: "MC",
+  },
+  {
+    name: "Aminata Baye Konaké",
+    role: "Développeuse systèmes embarqués",
+    org: "EUTG — Informatique Industrielle",
+    initials: "AK",
+  },
+  {
+    name: "Hamed Diawara",
+    role: "Développeur logiciel",
+    org: "EUTG — Électronique et Automatisme",
+    initials: "HD",
+  },
+  {
+    name: "Youssouf Diawara",
+    role: "Superviseur institutionnel",
+    org: "Directeur Général, EUTG",
+    initials: "YD",
+  },
+];
+---
+
+<BaseLayout
+  lang="fr"
+  path="/projets/forosun-tech/"
+  title="ForoSun-Tech — Serre solaire intelligente"
+  description="Projet ForoSun-Tech : serre solaire intelligente de 144 m² pour une agriculture résiliente au climat, sélectionnée par le programme WASCAL WISE Grant. Budget, équipe, calendrier et objectifs."
+>
+  <section class="relative overflow-hidden bg-brand-950">
+    <div
+      class="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-brand-700/40 blur-3xl"
+    >
+    </div>
+    <div class="container-page relative py-20 sm:py-24">
+      <div class="flex flex-wrap items-center gap-2">
+        <Badge tone="gold" class="bg-white/10 text-gold-300 ring-white/20">Projet phare</Badge>
+        <Badge tone="neutral" class="bg-white/10 text-white ring-white/20">
+          Sélectionné pour financement — contractualisation en cours
+        </Badge>
+      </div>
+      <h1 class="mt-5 max-w-3xl text-4xl font-bold text-white sm:text-5xl">ForoSun-Tech</h1>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-brand-100">
+        Energy–Water–Food Nexus : une serre solaire intelligente pour une agriculture résiliente au
+        climat dans le Sahel.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-brand-200">
+        <span class="flex items-center gap-2"
+          ><Icon name="pin" class="size-4 text-gold-400" /> Marakacoungo, région de Koulikoro, Mali</span
+        >
+        <span class="flex items-center gap-2"
+          ><Icon name="target" class="size-4 text-gold-400" /> Durée : 15 mois</span
+        >
+        <span class="flex items-center gap-2"
+          ><Icon name="funder" class="size-4 text-gold-400" /> Budget : 20 000 € — WASCAL WISE Grant</span
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-20 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-[1.3fr_1fr]">
+      <div class="prose-body">
+        <SectionHeading
+          eyebrow="Le projet"
+          title="Une serre pilote au service de la souveraineté alimentaire"
+        />
+        <p class="mt-5">
+          ForoSun-Tech conçoit, déploie et valide une serre solaire intelligente combinant IoT,
+          intelligence artificielle et énergie renouvelable, pour optimiser l'irrigation, le climat
+          intérieur, la gestion des ravageurs et la productivité agricole — avec la
+          <strong> tomate</strong> comme culture pilote.
+        </p>
+        <p>
+          Le site expérimental couvre <strong>144 m²</strong> (36 m × 4 m) sur un domaine de 6 hectares
+          à Marakacoungo, où un forage et un château d'eau sont déjà disponibles. Le projet est porté
+          par <strong>Sahel ClimaTech Group</strong> en partenariat avec l'École Universitaire de Technologie
+          et de Gestion (EUTG), qui héberge le site expérimental et les laboratoires, et l'ADKT (Association
+          pour le Développement de Kalaban Tiébani), pour la formation communautaire.
+        </p>
+        <h3 class="mt-8 text-xl font-semibold text-ink-950">Statut du financement</h3>
+        <p>
+          Le projet a été <strong>sélectionné pour financement</strong> par l'équipe WASCAL WISE après
+          évaluation technique et financière, sur la base d'un dossier signé en décembre 2025. L'octroi
+          du grant reste <strong
+            >soumis à l'achèvement des procédures administratives et contractuelles</strong
+          > prévues par le règlement WASCAL : à ce stade, la sélection est acquise mais aucun fonds n'a
+          encore été décaissé.
+        </p>
+
+        <h3 class="mt-8 text-xl font-semibold text-ink-950">Plan d'exécution — 9 phases</h3>
+        <ol class="mt-4 space-y-2">
+          {
+            phases.map((phase, i) => (
+              <li class="flex gap-3 text-ink-700">
+                <span class="font-mono text-sm font-semibold text-gold-600">
+                  {String(i).padStart(2, "0")}
+                </span>
+                <span>{phase}</span>
+              </li>
+            ))
+          }
+        </ol>
+
+        <h3 class="mt-8 text-xl font-semibold text-ink-950">Répartition budgétaire indicative</h3>
+        <p class="text-sm text-ink-500">
+          Budget total : 20 000 € — versé en trois tranches (40% / 40% / 20%).
+        </p>
+        <div class="mt-4 overflow-hidden rounded-xl border border-ink-100">
+          <table class="w-full text-sm">
+            <tbody>
+              {
+                budget.map(([label, amount], i) => (
+                  <tr class={i % 2 === 0 ? "bg-white" : "bg-ink-50/60"}>
+                    <td class="px-4 py-3 text-ink-700">{label}</td>
+                    <td class="px-4 py-3 text-right font-semibold text-ink-950">{amount}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="space-y-6">
+        <div class="rounded-2xl border border-ink-100 bg-brand-50/60 p-6">
+          <h3 class="text-sm font-bold uppercase tracking-wide text-brand-700">Objectifs visés</h3>
+          <div class="mt-4 grid grid-cols-2 gap-3">
+            <StatCard value="65–80%" label="Économie d'eau" />
+            <StatCard value="×3–×6" label="Rendement vs plein champ" />
+            <StatCard value="≥90%" label="Précision des modèles IA" />
+            <StatCard value="300+" label="Bénéficiaires formés" />
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wide text-ink-500">Équipe du projet</h3>
+          <div class="mt-4 space-y-3">
+            {
+              team.map((m) => (
+                <TeamMember name={m.name} role={m.role} org={m.org} initials={m.initials} />
+              ))
+            }
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <CTASection
+    title="Suivre ou soutenir ForoSun-Tech"
+    description="Chercheurs, agronomes, ingénieurs ou financeurs : ce projet est une porte d'entrée vers l'écosystème Sahel ClimaTech."
+    primaryLabel="Nous contacter"
+    primaryHref="/contact/"
+    secondaryLabel="Voir les partenariats"
+    secondaryHref="/partenaires/"
+  />
+</BaseLayout>

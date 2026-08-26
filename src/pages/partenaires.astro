@@ -1,0 +1,137 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import PartnerCategory from "../components/PartnerCategory.astro";
+import CTASection from "../components/CTASection.astro";
+import Icon from "../components/Icon.astro";
+
+const categories = [
+  {
+    icon: "graduation" as const,
+    title: "Universités & laboratoires",
+    items: [
+      "Recherche collaborative",
+      "Encadrement de stages et de thèses",
+      "Publications scientifiques",
+      "Échanges de données",
+    ],
+  },
+  {
+    icon: "handshake" as const,
+    title: "ONG & organisations agricoles",
+    items: [
+      "Identification des besoins terrain",
+      "Déploiement de projets pilotes",
+      "Formation des bénéficiaires",
+      "Mesure d'impact",
+    ],
+  },
+  {
+    icon: "building" as const,
+    title: "Institutions publiques",
+    items: [
+      "Données & études",
+      "Projets pilotes",
+      "Appui aux politiques publiques",
+      "Formation & innovation",
+    ],
+  },
+  {
+    icon: "funder" as const,
+    title: "Bailleurs & investisseurs",
+    items: [
+      "Finance climatique",
+      "Programmes de développement",
+      "Fonds d'innovation Deep-Tech",
+      "Impact investing",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  lang="fr"
+  path="/partenaires/"
+  title="Partenariats"
+  description="Sahel ClimaTech Group collabore avec des universités, ONG, institutions publiques, organisations agricoles et bailleurs de fonds pour construire des solutions climatiques au Sahel."
+>
+  <PageHeader
+    eyebrow="Partenariats"
+    title="Construire par la collaboration, pas l'isolement"
+    description="Les défis du Sahel ne se résolvent pas par une seule discipline. Sahel ClimaTech Group construit des ponts entre recherche, technologie, terrain et financement."
+  />
+
+  <section class="container-page py-20 sm:py-24">
+    <SectionHeading
+      eyebrow="Qui nous cherchons à rencontrer"
+      title="Quatre grandes familles de partenaires"
+      class="mx-auto max-w-2xl text-center"
+      align="center"
+    />
+    <div class="mt-10 grid gap-5 sm:grid-cols-2">
+      {categories.map((c) => <PartnerCategory icon={c.icon} title={c.title} items={c.items} />)}
+    </div>
+  </section>
+
+  <section class="bg-brand-50/60 py-20 sm:py-24">
+    <div class="container-page">
+      <div class="mx-auto max-w-3xl text-center">
+        <SectionHeading
+          align="center"
+          eyebrow="Notre proposition de valeur"
+          title="Du problème de terrain à l'impact"
+        />
+        <div
+          class="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm font-semibold text-brand-800"
+        >
+          {
+            [
+              "Problème de terrain",
+              "Recherche",
+              "Données",
+              "Technologie",
+              "Prototype",
+              "Formation",
+              "Déploiement",
+              "Impact",
+            ].map((step, i, arr) => (
+              <>
+                <span class="rounded-full bg-white px-3.5 py-2 shadow-soft">{step}</span>
+                {i < arr.length - 1 && <Icon name="arrow-right" class="size-4 text-gold-500" />}
+              </>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-20 sm:py-24">
+    <div class="mx-auto max-w-3xl">
+      <SectionHeading
+        eyebrow="Écosystème"
+        title="Ancrés dans l'écosystème climatique malien et régional"
+      />
+      <p class="mt-5 leading-relaxed text-ink-600">
+        Sahel ClimaTech Group souhaite inscrire ses projets dans l'écosystème national et régional
+        de finance climatique — notamment le <strong>Mali Climate Fund</strong> et l'écosystème du <strong
+          >Green Climate Fund</strong
+        > — ainsi que dans le réseau scientifique et technique de <strong>WASCAL</strong>, dont les
+        activités combinent services climatiques, données, recherche, ingénierie et formation.
+      </p>
+      <p class="mt-4 leading-relaxed text-ink-600">
+        Ces mécanismes ne sont pas considérés comme des financements automatiquement accessibles :
+        chaque projet est construit selon les critères d'éligibilité et les règles propres à chaque
+        partenaire ou bailleur.
+      </p>
+    </div>
+  </section>
+
+  <CTASection
+    title="Explorons une collaboration"
+    description="Que vous représentiez une université, une ONG, une institution publique ou un fonds d'investissement, nous sommes ouverts à la discussion."
+    primaryLabel="Nous contacter"
+    primaryHref="/contact/"
+  />
+</BaseLayout>

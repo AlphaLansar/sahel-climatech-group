@@ -1,0 +1,94 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE, ROUTE_ALTERNATES, type Lang } from "../consts";
+import "../styles/global.css";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  path: string;
+  /** Optional override for the social preview image (defaults to the brand OG cover). */
+  ogImage?: string;
+}
+
+const { lang, title, description, path, ogImage } = Astro.props;
+
+const canonicalURL = new URL(path, Astro.site);
+const alternatePath = ROUTE_ALTERNATES[path];
+const alternateURL = alternatePath ? new URL(alternatePath, Astro.site) : null;
+const ogImageURL = new URL(ogImage ?? "/assets/brand/og-cover.jpg", Astro.site);
+const fullTitle = title.includes(SITE.name) ? title : `${title} — ${SITE.name}`;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0e7a42" />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    {
+      alternateURL && (
+        <link rel="alternate" hreflang={lang === "fr" ? "en" : "fr"} href={alternateURL} />
+      )
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL("/", Astro.site)} />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content={lang === "fr" ? "fr_ML" : "en_US"} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Icons -->
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} sizes="any" />
+    <link
+      rel="icon"
+      href={`${import.meta.env.BASE_URL}favicon-32x32.png`}
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href={`${import.meta.env.BASE_URL}favicon-16x16.png`}
+      type="image/png"
+      sizes="16x16"
+    />
+    <link rel="apple-touch-icon" href={`${import.meta.env.BASE_URL}apple-touch-icon.png`} />
+    <link rel="manifest" href={`${import.meta.env.BASE_URL}site.webmanifest`} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-700 focus:px-4 focus:py-2 focus:text-white"
+    >
+      {lang === "fr" ? "Aller au contenu principal" : "Skip to main content"}
+    </a>
+    <Header lang={lang} path={path} />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>
