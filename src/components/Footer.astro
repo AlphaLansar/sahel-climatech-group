@@ -15,18 +15,18 @@ const copy = {
       "Structure malienne d'innovation, de recherche appliquée et de technologie au service de la résilience climatique, environnementale et agricole du Sahel.",
     nav: "Navigation",
     contact: "Contact",
-    status: "SASU en cours de constitution — Bamako, Mali",
+    location: "Bamako, Mali",
     rights: `© ${year} ${SITE.name}. Tous droits réservés.`,
-    builtWith: "Site conçu et développé en interne — hébergé sur GitHub Pages.",
+    builtWith: "Site conçu et développé en interne.",
   },
   en: {
     blurb:
       "A Malian innovation, applied research and technology organization for climate, environmental and agricultural resilience in the Sahel.",
     nav: "Navigation",
     contact: "Contact",
-    status: "SASU under incorporation — Bamako, Mali",
+    location: "Bamako, Mali",
     rights: `© ${year} ${SITE.name}. All rights reserved.`,
-    builtWith: "Designed and built in-house — hosted on GitHub Pages.",
+    builtWith: "Designed and built in-house.",
   },
 }[lang];
 ---
@@ -47,7 +47,7 @@ const copy = {
       <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink-400">{copy.blurb}</p>
       <p class="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-gold-400">
         <Icon name="pin" class="size-3.5" />
-        {copy.status}
+        {copy.location}
       </p>
     </div>
 

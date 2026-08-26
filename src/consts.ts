@@ -11,9 +11,7 @@ export const SITE = {
     en: "Innovation • Research • Training • Technology • Climate",
   },
   city: "Bamako, Mali",
-  // TODO: replace with a branded address (e.g. contact@sahelclimatech.com)
-  // once the domain is registered — see README "Prochaines étapes".
-  contactEmail: "alphalansar@gmail.com",
+  contactEmail: "sahel.climatech.group@gmail.com",
   address: "EUTG — Baco Djicoroni ACI Golf, Rue 782, Porte 352, Bamako, République du Mali",
 } as const;
 

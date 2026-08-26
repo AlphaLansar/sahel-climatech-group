@@ -75,9 +75,12 @@ const isActive = (href: string) => (href === homeHref ? path === href : path.sta
       class="inline-flex items-center justify-center rounded-full p-2.5 text-ink-700 ring-1 ring-inset ring-ink-200 lg:hidden"
       aria-expanded="false"
       aria-controls="mobile-nav"
+      data-label-open={lang === "fr" ? "Ouvrir le menu" : "Open menu"}
+      data-label-close={lang === "fr" ? "Fermer le menu" : "Close menu"}
       aria-label={lang === "fr" ? "Ouvrir le menu" : "Open menu"}
     >
-      <Icon name="menu" class="size-5" />
+      <Icon name="menu" class="size-5" data-icon="menu" />
+      <Icon name="close" class="hidden size-5" data-icon="close" />
     </button>
   </div>
 
@@ -113,10 +116,18 @@ const isActive = (href: string) => (href === homeHref ? path === href : path.sta
 <script>
   const toggle = document.getElementById("nav-toggle");
   const panel = document.getElementById("mobile-nav");
+  const menuIcon = toggle?.querySelector('[data-icon="menu"]');
+  const closeIcon = toggle?.querySelector('[data-icon="close"]');
   toggle?.addEventListener("click", () => {
     const willOpen = panel?.classList.contains("hidden");
     panel?.classList.toggle("hidden");
     panel?.classList.toggle("flex");
     toggle.setAttribute("aria-expanded", String(!!willOpen));
+    toggle.setAttribute(
+      "aria-label",
+      willOpen ? (toggle.dataset.labelClose ?? "") : (toggle.dataset.labelOpen ?? ""),
+    );
+    menuIcon?.classList.toggle("hidden", willOpen);
+    closeIcon?.classList.toggle("hidden", !willOpen);
   });
 </script>

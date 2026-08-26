@@ -20,6 +20,25 @@ const alternatePath = ROUTE_ALTERNATES[path];
 const alternateURL = alternatePath ? new URL(alternatePath, Astro.site) : null;
 const ogImageURL = new URL(ogImage ?? "/assets/brand/og-cover.jpg", Astro.site);
 const fullTitle = title.includes(SITE.name) ? title : `${title} — ${SITE.name}`;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE.name,
+  url: String(new URL("/", Astro.site)),
+  logo: String(new URL("/assets/brand/logo-mark.png", Astro.site)),
+  description:
+    lang === "fr"
+      ? "Structure malienne d'innovation, de recherche appliquée et de technologie dédiée à la résilience climatique, environnementale et agricole du Sahel."
+      : "A Malian innovation, applied research and technology organization for climate, environmental and agricultural resilience in the Sahel.",
+  email: `mailto:${SITE.contactEmail}`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Baco Djicoroni ACI Golf, Rue 782, Porte 352",
+    addressLocality: "Bamako",
+    addressCountry: "ML",
+  },
+};
 ---
 
 <!doctype html>
@@ -77,6 +96,12 @@ const fullTitle = title.includes(SITE.name) ? title : `${title} — ${SITE.name}
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400..700&display=swap"
       rel="stylesheet"
     />
+
+    {
+      /* set:html here is safe: organizationSchema is built entirely from
+         hardcoded SITE constants, never from user input. */
+    }
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationSchema)} />
   </head>
   <body class="flex min-h-screen flex-col">
     <a

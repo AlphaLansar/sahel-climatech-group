@@ -50,12 +50,23 @@ import { SITE } from "../../consts";
           </div>
         </div>
 
-        <div class="rounded-2xl border border-gold-200 bg-gold-50 p-6">
-          <p class="text-sm leading-relaxed text-gold-900">
-            <strong>Sahel ClimaTech Group (SASU)</strong> is currently being incorporated with the Agency
-            for the Promotion of Investment (API-Mali). See the
-            <a href="/en/legal-notice/" class="font-semibold link-underline">legal notice</a>.
-          </p>
+        <div class="rounded-2xl border border-ink-100 bg-white p-6 shadow-soft">
+          <div class="flex items-start gap-3">
+            <span
+              class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600"
+            >
+              <Icon name="check" class="size-5" />
+            </span>
+            <div>
+              <p class="text-sm font-semibold text-ink-950">Legal information</p>
+              <p class="text-sm leading-relaxed text-ink-600">
+                Legal form, registered office and registration:
+                <a href="/en/legal-notice/" class="font-semibold text-brand-700 link-underline"
+                  >legal notice</a
+                >.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -126,7 +137,7 @@ import { SITE } from "../../consts";
           Send message
           <Icon name="arrow-right" class="size-4" />
         </button>
-        <p class="text-xs text-ink-400">
+        <p class="text-xs text-ink-500">
           This form opens your email client. You can also write directly to
           <a href={`mailto:${SITE.contactEmail}`} class="link-underline">{SITE.contactEmail}</a>.
         </p>

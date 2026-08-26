@@ -50,12 +50,23 @@ import { SITE } from "../consts";
           </div>
         </div>
 
-        <div class="rounded-2xl border border-gold-200 bg-gold-50 p-6">
-          <p class="text-sm leading-relaxed text-gold-900">
-            <strong>Sahel ClimaTech Group (SASU)</strong> est en cours de constitution auprès de l'Agence
-            pour la Promotion des Investissements (API-Mali). Voir les
-            <a href="/mentions-legales/" class="font-semibold link-underline">mentions légales</a>.
-          </p>
+        <div class="rounded-2xl border border-ink-100 bg-white p-6 shadow-soft">
+          <div class="flex items-start gap-3">
+            <span
+              class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600"
+            >
+              <Icon name="check" class="size-5" />
+            </span>
+            <div>
+              <p class="text-sm font-semibold text-ink-950">Informations légales</p>
+              <p class="text-sm leading-relaxed text-ink-600">
+                Forme juridique, siège social et immatriculation :
+                <a href="/mentions-legales/" class="font-semibold text-brand-700 link-underline"
+                  >mentions légales</a
+                >.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -126,7 +137,7 @@ import { SITE } from "../consts";
           Envoyer le message
           <Icon name="arrow-right" class="size-4" />
         </button>
-        <p class="text-xs text-ink-400">
+        <p class="text-xs text-ink-500">
           Ce formulaire ouvre votre client de messagerie. Vous pouvez aussi écrire directement à <a
             href={`mailto:${SITE.contactEmail}`}
             class="link-underline">{SITE.contactEmail}</a
