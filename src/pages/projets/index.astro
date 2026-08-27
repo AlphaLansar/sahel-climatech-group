@@ -10,15 +10,21 @@ import { withBase } from "../../lib/url";
   lang="fr"
   path="/projets/"
   title="Projets"
-  description="ForoSun-Tech : serre solaire intelligente pour une agriculture résiliente au climat, projet phare de Sahel ClimaTech Group sélectionné par le programme WASCAL WISE Grant."
+  description="ForoSun-Tech : serre solaire intelligente pour une agriculture résiliente au climat, projet phare de Sahel ClimaTech Group mené en partenariat avec WASCAL et l'EUTG."
 >
   <PageHeader
     eyebrow="Projets"
     title="De la recherche au prototype de terrain"
-    description="Chaque projet Sahel ClimaTech combine science, données et technologie pour répondre à un problème concret du Sahel."
+    description="Chaque projet Sahel ClimaTech s'appuie sur nos domaines d'expertise — climat, agriculture intelligente, énergie, IA, IoT et robotique — pour répondre à un problème concret du Sahel."
   />
 
   <section class="container-page py-20 sm:py-24">
+    <p class="mx-auto mb-10 max-w-3xl text-center leading-relaxed text-ink-600">
+      Notre pratique <strong class="text-ink-950">Agriculture intelligente &amp; Climat</strong>
+      combine irrigation de précision, prévision des rendements, détection du stress hydrique et automatisation
+      des serres. <strong class="text-ink-950">ForoSun-Tech</strong> en est le premier démonstrateur de
+      terrain.
+    </p>
     <a
       href={withBase("/projets/forosun-tech/")}
       class="group grid gap-8 rounded-3xl border border-ink-100 bg-white p-8 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center"
@@ -26,7 +32,7 @@ import { withBase } from "../../lib/url";
       <div>
         <div class="flex flex-wrap items-center gap-2">
           <Badge tone="gold">Projet phare</Badge>
-          <Badge tone="brand">Sélectionné pour financement — WASCAL WISE Grant</Badge>
+          <Badge tone="brand">Partenariat — WASCAL &amp; EUTG</Badge>
         </div>
         <h2 class="mt-4 text-2xl font-bold text-ink-950 sm:text-3xl">ForoSun-Tech</h2>
         <p class="mt-1 text-base font-medium text-brand-700">
@@ -45,7 +51,7 @@ import { withBase } from "../../lib/url";
             ><Icon name="target" class="size-4" /> 15 mois</span
           >
           <span class="flex items-center gap-1.5"
-            ><Icon name="funder" class="size-4" /> 20 000 EUR — WASCAL WISE Grant</span
+            ><Icon name="funder" class="size-4" /> WASCAL &amp; EUTG</span
           >
         </div>
       </div>
